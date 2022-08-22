@@ -10,21 +10,21 @@ namespace BaoVeSolution.WebApplication.Controllers
 {
     public class BlogController : Controller
     {
-        public const int PageSize = 9;
+        public const int PageSize = 1;
         private BaoVeContext db = new BaoVeContext();
 
         // GET:
-        public ActionResult Index(int? id, int page = 1, string keyword = null)
+        public ActionResult Index(int? categoryId, int page = 1, string keyword = null)
         {
             keyword = keyword ?? "";
-            if (id == null)
+            if (categoryId == null)
             {
                 return RedirectToAction("Index", "MainPage");
             }
             else
             {
-                var blogs = db.Blogs.Where(b => b.CategoryId == id).ToList();
-                ViewBag.Category = db.Categories.Find(id);
+                var blogs = db.Blogs.Where(b => b.CategoryId == categoryId).ToList();
+                ViewBag.Category = db.Categories.Find(categoryId);
                 return View(blogs.ToPagedList(page, PageSize));
             }
         }

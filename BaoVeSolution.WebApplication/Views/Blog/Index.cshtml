@@ -1,133 +1,97 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
-}
-@using PagedList;
+﻿@using PagedList;
 @using PagedList.Mvc;
 @{
     BaoVeSolution.WebApplication.DB.Entities.Category category = ViewBag.Category;
-    Html.RenderAction("PageHeader", "Layouts", new { categoryName = category.Name });
+    //Html.RenderAction("PageHeader", "Layouts", new { categoryName = category.Name });
     @model IEnumerable<BaoVeSolution.WebApplication.DB.Entities.Blog>
 
     var pagedList = (IPagedList)Model;
-}
 
+}
+<style>
+    .pagination,
+    .blog__pagination {
+        padding-top: 10px;
+    }
+
+        .pagination a,
+        .blog__pagination a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px;
+            width: 45px;
+            height: 46px;
+            border: 1px solid #b2b2b2;
+            font-size: 19px;
+            color: #b2b2b2;
+            font-weight: 700;
+            line-height: 28px;
+            text-align: center;
+            margin-right: 16px;
+            -webkit-transition: all, 0.3s;
+            -moz-transition: all, 0.3s;
+            -ms-transition: all, 0.3s;
+            -o-transition: all, 0.3s;
+            transition: all, 0.3s;
+            text-align: center;
+        }
+
+            .pagination a:hover,
+            .blog__pagination a:hover {
+                background: #80808091;
+                border-color: #80808091;
+                color: #ffffff;
+            }
+
+            .pagination a:last-child,
+            .blog__pagination a:last-child {
+                margin-right: 0;
+            }
+    .pagination .active a {
+        background-color: var(--primary);
+        color:#FFF;
+    }
+        .pagination li:first-child a{
+            border-radius:10px 0px 0px 10px;
+        }
+        .pagination li:last-child a {
+            border-radius: 0px 10px 10px 0px;
+        }
+
+</style>
 <!-- Blog Start -->
 <div class="container-fluid py-5">
     <div class="container">
         <div class="row align-items-end mb-4">
             <div class="col-lg-6">
                 <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Bài viết mới nhất</h6>
-                <h1 class="section-title mb-3">Những bài đăng mới nhất từ @category.Name</h1>
+                <h1 class="section-title mb-3">Những bài đăng mới nhất từ @category.Name.ToLower()</h1>
             </div>
             <div class="col-lg-6">
-                <h4 class="font-weight-normal text-muted mb-3">@@category.Content</h4>
+                <h4 class="font-weight-normal text-muted mb-3">@category.Description</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-1.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold text-white mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="position-relative mb-4">
+                        <img class="img-fluid rounded w-100" src="@item.ImagePath" alt="">
+                        <div class="blog-date">
+                            <h4 class="font-weight-bold text-white mb-n1">01</h4>
+                            <small class="text-white text-uppercase">@item.DateCreated</small>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-2.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
+                    <div class="d-flex mb-2">
+                        <a class="text-secondary text-uppercase font-weight-medium" href="">@item.UserCreated</a>
                     </div>
+                    <h5 class="font-weight-medium mb-2">@item.Title</h5>
+                    <p class="mb-4">@item.Info</p>
+                    <a class="btn btn-sm btn-primary py-2" href="">Xem chi tiết</a>
                 </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-3.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
-                    </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-2.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
-                    </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-3.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
-                    </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="img/blog-1.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
-                    </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Admin</a>
-                    <span class="text-primary px-2">|</span>
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-12">
+            }
+
+@*            <div class="col-12">
                 <nav aria-label="Page navigation">
                     <ul class="pagination pagination-lg justify-content-center mb-0">
                         <li class="page-item disabled">
@@ -147,6 +111,12 @@
                         </li>
                     </ul>
                 </nav>
+            </div>*@
+            <div class="col-12 row justify-content-center">
+                @*                    @(pagedList.PageCount < pagedList.PageNumber ? 0 : pagedList.PageNumber) / @pagedList.PageCount*@
+
+                @Html.PagedListPager(pagedList, page => Url.Action("Index",
+                new { categoryId = category.Id, page = page }))
             </div>
         </div>
     </div>

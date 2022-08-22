@@ -10,14 +10,19 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public long CategoryId { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+
         [Required]
         public string Title { get; set; }
+
         [Required]
         public string ImagePath { get; set; }
+
         [Required]
         public string Info { get; set; }
+
         [Required]
         public string Description { get; set; }
-    }
 
+        public string UserCreated { get; set; }
+    }
 }

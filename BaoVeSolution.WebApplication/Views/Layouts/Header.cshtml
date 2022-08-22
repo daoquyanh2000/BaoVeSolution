@@ -60,7 +60,7 @@
 
                                 @foreach (var item in category.Where(x => x.ParentId == 1).ToList())
                                 {
-                                    <a href="/blog/Index?id=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 5).ToList())
                                 {
-                                    <a href="/blog/Index?id=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 8).ToList())
                                 {
-                                    <a href="/blog/Index?id=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 14).ToList())
                                 {
-                                    <a href="/blog/Index?id=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>

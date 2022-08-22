@@ -13,6 +13,6 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public string Name { get; set; }
         public string slug { get; set; }
         public int ParentId { get; set; }
-
+        public string Description { get; set; }
     }
 }
