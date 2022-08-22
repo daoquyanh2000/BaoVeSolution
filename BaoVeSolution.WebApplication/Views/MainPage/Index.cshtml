@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    BaoVeSolution.WebApplication.DB.Entities.HomePage home = ViewBag.Home;
+}
+@model BaoVeSolution.WebApplication.DB.Entities.Layout
+
+@{ 
+    Html.RenderAction("Carousel", "Layouts");
+}
+@* Contact Info Start*@
+<div class="container-fluid pb-5 contact-info">
+    <div class="row">
+        <div class="col-lg-4 p-0">
+            <div class="contact-info-item d-flex align-items-center justify-content-center bg-primary text-white py-4 py-lg-0">
+                <i class="fa fa-3x fa-map-marker-alt text-secondary mr-4"></i>
+                <div class="">
+                    <h5 class="mb-2 text-secondary">Văn phòng</h5>
+                    <p class="m-0">@Model.Address</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 p-0">
+            <div class="contact-info-item d-flex align-items-center justify-content-center bg-secondary text-white py-4 py-lg-0">
+                <i class="fa fa-3x fa-envelope-open text-primary mr-4"></i>
+                <div class="">
+                    <h5 class="mb-2">Email</h5>
+                    <p class="m-0">@Model.Email</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 p-0">
+            <div class="contact-info-item d-flex align-items-center justify-content-center bg-primary text-white py-4 py-lg-0">
+                <i class="fa fa-3x fa-phone-alt text-secondary mr-4"></i>
+                <div class="">
+                    <h5 class="mb-2 text-secondary">Liên hệ</h5>
+                    <p class="m-0">@Model.PhoneNumber</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Contact Info End
+    About Start*@
+<div class="container-fluid py-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="d-flex flex-column align-items-center justify-content-center bg-about rounded h-100 py-5 px-3">
+                    <i class="fa fa-5x fa-award text-primary mb-4"></i>
+                    <h1 class="display-2 text-white mb-2" data-toggle="counter-up">@home.YearsExperience</h1>
+                    <h2 class="text-white m-0">Năm kinh nghiệm</h2>
+                </div>
+            </div>
+            <div class="col-lg-7 pt-5 pb-lg-5">
+                <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Về chúng tôi</h6>
+                <h1 class="mb-4 section-title">Công ty dịch vụ bảo vệ Khánh Toàn</h1>
+
+                <h4 class="text-primary font-weight-bold mb-3">Cung cấp dịch vụ bảo vệ chất lượng nhất</h4>
+                <p>
+                    Để xây dựng dịch vụ bảo vệ chất lượng cao. Khánh Toàn không ngừng đổi mới. Chúng tôi luôn tuân thủ pháp luật, duy trì các tiêu chuẩn đạo đức trong kinh doanh. Với đội ngũ chuyên gia an ninh giàu kinh nghiệm trong ngành bảo vệ được trang bị công cụ hỗ trợ chuyên dụng hiện đại. Cùng với giải pháp kiểm soát chất lượng dịch vụ qua hệ thống camera quan sát được lắp đặt miễn phí tại các mục tiêu bảo vệ. Khánh Toàn luôn đem đến cho khách hàng một chất lượng dịch vụ hoàn hảo, đảm bảo an toàn tài sản cho Quý khách hàng.
+                </p>
+                <div class="d-flex align-items-center pt-4">
+                    <a href="" class="btn btn-primary mr-5">Chi tiết</a>
+                    <button type="button" class="btn-play" data-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+                        <span></span>
+                    </button>
+                    <h5 class="font-weight-normal text-white m-0 ml-4 d-none d-sm-block">Play Video</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* About End
+    Video Modal Start*@
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                @*16:9 aspect ratio*@
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Video Modal End
+    Features Start*@
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-7 pt-lg-5 pb-3">
+                <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Chọn chúng tôi vì</h6>
+                <h1 class="mb-4 section-title">@home.YearsExperience Năm kinh nghiệm trong dịch vụ bảo vệ</h1>
+                <p class="mb-4">
+                </p>
+                <p>
+                    Tháng 07/2005 chi nhánh Hà Nội được thành lập tọa lại tại số 4 Ngõ 168, Phố Nguyễn Xiển, P.Hạ Đình, Q.Thanh Xuân, TP.Hà Nội.
+                </p>
+                <p>
+                    Đến tháng 07/2007 chi nhánh Công Ty Bảo Vệ Khánh Toàn tại Đà Nẵng được thành lập. Địa chỉ văn phòng số 34 Trịnh Hoài Đức, P.Khuê Trung, Q.Cẩm Lệ, TP. Đà Nẵng.
+                </p>
+                <p>
+                    Cuối năm 2012 để hoàn thiện chuỗi cung ứng dịch vụ bảo vệ trên toàn lãnh thổ Việt Nam, chi nhánh Công Ty Bảo Vệ Khánh Toàn Cần Thơ được thành lập tại số 9, Đường Trần Văn Hoài, P.Xuân Khánh, Q.Ninh Kiều, TP.Cần Thơ.
+                </p>
+                <p>
+                    14 năm hình thành và phát triễn. Chúng tôi chân thành cám ơn đến Quý khách hàng đã đồng hành và giúp đỡ Khánh Toàn trong suốt thời gian qua. Khánh Toàn luôn thay đổi để nâng cao chất lượng dịch vụ, Luôn lắng nghe để đáp ứng tốt nhu cầu của Quý khách. Khánh Toàn luôn đề cao : Liêm chính, Cẩn mật và sẵn sàng chia sẻ.
+                </p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 class="text-secondary mb-2" data-toggle="counter-up">@home.Employees</h1>
+                        <h6 class="font-weight-semi-bold mb-sm-4">Đội ngũ nhân viên</h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <h1 class="text-secondary mb-2" data-toggle="counter-up">@home.Project</h1>
+                        <h6 class="font-weight-semi-bold mb-sm-4">Mục tiêu bảo vệ</h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <h1 class="text-secondary mb-2" data-toggle="counter-up">@home.Award</h1>
+                        <h6 class="font-weight-semi-bold mb-sm-4">Giải thưởng & danh hiệu</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5" style="min-height: 400px;">
+                <div class="position-relative h-100 rounded overflow-hidden">
+                    <img class="position-absolute w-100 h-100" src="~/Content/img/feature.png" style="object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Features End
+    Blog Start*@
+<div class="container-fluid pt-5">
+    <div class="container pt-5">
+        <div class="row align-items-end mb-4">
+            <div class="col-lg-6">
+                <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Bài viết mới nhất</h6>
+                <h1 class="section-title mb-3">Những bài viết gần đây</h1>
+            </div>
+            <div class="col-lg-6">
+                <h4 class="font-weight-normal text-muted mb-3">Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="position-relative mb-4">
+                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-1.jpg" alt="">
+                    <div class="blog-date">
+                        <h4 class="font-weight-bold mb-n1">01</h4>
+                        <small class="text-white text-uppercase">Jan</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-2">
+                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
+                </div>
+                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
+                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
+                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="position-relative mb-4">
+                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-2.jpg" alt="">
+                    <div class="blog-date">
+                        <h4 class="font-weight-bold mb-n1">01</h4>
+                        <small class="text-white text-uppercase">Jan</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-2">
+                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
+                </div>
+                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
+                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
+                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="position-relative mb-4">
+                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-3.jpg" alt="">
+                    <div class="blog-date">
+                        <h4 class="font-weight-bold mb-n1">01</h4>
+                        <small class="text-white text-uppercase">Jan</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-2">
+                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
+                </div>
+                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
+                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
+                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+@* Blog End*@
