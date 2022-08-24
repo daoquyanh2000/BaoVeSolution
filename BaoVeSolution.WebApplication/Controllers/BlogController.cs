@@ -10,7 +10,7 @@ namespace BaoVeSolution.WebApplication.Controllers
 {
     public class BlogController : Controller
     {
-        public const int PageSize = 1;
+        public const int PageSize = 9;
         private BaoVeContext db = new BaoVeContext();
 
         // GET:

@@ -33,8 +33,99 @@
         td {
             text-align: center;
         }
+
+        .ck-editor__editable_inline {
+            min-height: 400px;
+        }
+
+        .cut-text {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 200px;
+            white-space: nowrap;
+        }
     </style>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
+<style>
+    :root {
+        --offcavas-width: 250px;
+        --topNavbarHeight: 56px;
+    }
+
+    main {
+        margin-top: var(--topNavbarHeight);
+        font-size: 16px;
+        min-height: 624px;
+    }
+
+    .sidebar-nav {
+        width: var(--offcavas-width);
+    }
+
+    .icon-right {
+        transition: all ease .3s;
+    }
+
+    .sidebar-link[aria-expanded="false"] .icon-right {
+        transform: rotate(180deg);
+    }
+
+    .form-group {
+        padding: 6px 0px;
+    }
+
+    .footer-position {
+        margin-top: 70%;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    @@media (max-width:1024) {
+    }
+
+    @@media (min-width:1023px) {
+        main,
+        footer {
+            margin-top: var(--topNavbarHeight);
+            margin-left: var(--offcavas-width);
+        }
+
+        main {
+            padding: 12px;
+        }
+        /* .modal-backdrop {
+        display: none !important;
+    } */
+
+        .sidebar-nav {
+            transform: none;
+            visibility: visible !important;
+            top: var(--topNavbarHeight);
+        }
+    }
+
+    label.error {
+        color: red;
+    }
+
+    th, td {
+        word-break: keep-all;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
 
 <body>
     <header>
@@ -103,33 +194,15 @@
                                     </li>
 
                                     <li class="navbar-nav">
-                                        <a href="/admin/products" class="nav-link">
-                                            <i class="bi bi-box-seam"></i>
-                                            Sản phẩm
-                                        </a>
-                                    </li>
-                                    <li class="navbar-nav">
-                                        <a href="/admin/productTypes" class="nav-link">
-                                            <i class="bi bi-tag-fill"></i>
-                                            Loại Sản phẩm
-                                        </a>
-                                    </li>
-                                    <li class="navbar-nav">
                                         <a href="/admin/categories" class="nav-link">
-                                            <i class="bi bi-bookmarks"></i>
-                                            Danh mục sản phẩm
+                                            <i class="bi bi-box-seam"></i>
+                                            Danh mục bài viết
                                         </a>
                                     </li>
                                     <li class="navbar-nav">
-                                        <a href="/admin/suppliers" class="nav-link">
-                                            <i class="bi bi-house-fill"></i>
-                                            Nhà cung cấp
-                                        </a>
-                                    </li>
-                                    <li class="navbar-nav">
-                                        <a href="/admin/deliveryEmployees" class="nav-link">
-                                            <i class="bi bi-people-fill"></i>
-                                            Nhân viên giao hàng
+                                        <a href="/admin/Blogs" class="nav-link">
+                                            <i class="bi bi-box-seam"></i>
+                                            Bài viết
                                         </a>
                                     </li>
                                 </ul>
@@ -140,15 +213,15 @@
                         </li>
                         <!-- sidebar item 2 end-->
                         <!-- sidebar item 3 start-->
-                        <li class="sidebar-item">
-                            <a href="/admin/orders" class="nav-link">
-                                <i class="bi bi-bag-fill"></i>
-                                Quản lý đơn hàng
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <hr class="dropdown-divider">
-                        </li>
+                        @*                        <li class="sidebar-item">
+                                <a href="/admin/orders" class="nav-link">
+                                    <i class="bi bi-bag-fill"></i>
+                                    Quản lý đơn hàng
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <hr class="dropdown-divider">
+                            </li>*@
                     </ul>
                 </nav>
             </div>
@@ -208,6 +281,7 @@
     <!-- footer end -->
 </body>
 </html>
+<script>
+</script>
 
-@*@Scripts.Render("~/bundles/jqueryval")*@
 @RenderSection("scripts", required: false)

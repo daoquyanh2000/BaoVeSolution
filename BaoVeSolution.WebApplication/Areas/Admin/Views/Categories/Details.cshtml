@@ -5,10 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết</h2>
 
 <div>
-    <h4>Category</h4>
+    <h4>Danh mục</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,6 +20,23 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </dt>
+
+        @{
+            var listParentCategory = (List<BaoVeSolution.WebApplication.DB.Entities.Category>)Session["listParentCategory"];
+            var parrentCategory = listParentCategory.Where(x => x.Id == Model.ParentId).FirstOrDefault();
+        }
+        @if (parrentCategory != null)
+        {
+            <dd>@parrentCategory.Name</dd>
+        }
+        else
+        {
+            <dd>Trống</dd>
+        }
+
+        <dt>
             @Html.DisplayNameFor(model => model.slug)
         </dt>
 
@@ -28,11 +45,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParentId)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParentId)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
         <dt>
@@ -42,10 +59,9 @@
         <dd>
             @Html.DisplayFor(model => model.State)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Quay lại", "Index")
 </p>

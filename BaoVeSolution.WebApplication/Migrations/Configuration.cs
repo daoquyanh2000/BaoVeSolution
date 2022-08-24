@@ -1,6 +1,7 @@
 ﻿using BaoVeSolution.WebApplication.DB;
 using BaoVeSolution.WebApplication.DB.Base;
 using BaoVeSolution.WebApplication.DB.Entities;
+using System;
 using System.Data.Entity.Migrations;
 
 namespace Model.Migrations
@@ -18,6 +19,7 @@ namespace Model.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             base.Seed(context);
+            context.Blogs.AddOrUpdate(new Blog() { State = State.Active, CategoryId = 2, DateCreated = DateTime.Now, DateModified = DateTime.Now, Description = "123", Id = 1, ImagePath = "123", Content = "helloae", Title = "blog 1 hướng dẫn chạy db", UserCreated = "admin" });
             context.Users.AddOrUpdate(new User() { State = State.Active, Email = "123@gmail.com", Id = 1, Password = "123456", PhoneNumber = "123456789", UserName = "admin" });
             var layout = new Layout()
             {
@@ -52,7 +54,8 @@ namespace Model.Migrations
                     Name = "Giới thiệu",
                     slug = "gioi-thieu",
                     ParentId = 0,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -60,7 +63,8 @@ namespace Model.Migrations
                     Name = "Đối tác Đất Việt",
                     slug = "doi-tac-dat-viet",
                     ParentId = 1,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -68,7 +72,8 @@ namespace Model.Migrations
                     Name = "Hồ sơ năng lực",
                     slug = "ho-so-nang-luc",
                     ParentId = 1,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -76,7 +81,8 @@ namespace Model.Migrations
                     Name = "Danh bạ bảo vệ",
                     slug = "danh-ba-bao-ve",
                     ParentId = 1,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -84,7 +90,8 @@ namespace Model.Migrations
                     Name = "Tin tức",
                     slug = "tin-tuc",
                     ParentId = 0,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -92,7 +99,8 @@ namespace Model.Migrations
                     Name = "Tin Khánh Toàn",
                     slug = "tin-khanh-toan",
                     ParentId = 5,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -100,7 +108,8 @@ namespace Model.Migrations
                     Name = "Tin tổng hợp",
                     slug = "tin-tong-hop",
                     ParentId = 5,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -108,7 +117,8 @@ namespace Model.Migrations
                     Name = "Dịch vụ",
                     slug = "dich-vu",
                     ParentId = 0,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -116,7 +126,8 @@ namespace Model.Migrations
                     Name = "Dịch vụ bảo vệ",
                     slug = "dich-vu-bao-ve",
                     ParentId = 8,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -124,7 +135,8 @@ namespace Model.Migrations
                     Name = "Lắp đặt camera quan sát",
                     slug = "lap-dat-camera-quan-sat",
                     ParentId = 8,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -132,7 +144,8 @@ namespace Model.Migrations
                     Name = "Lắp đặt bãi xe thông minh",
                     slug = "lap-dat-bai-xe-thong-minh",
                     ParentId = 9,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -140,7 +153,8 @@ namespace Model.Migrations
                     Name = "Tuyển dụng bảo vệ",
                     slug = "tuyen-dung-bao-ve",
                     ParentId = 12,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -148,7 +162,8 @@ namespace Model.Migrations
                     Name = "Video",
                     slug = "video",
                     ParentId = 0,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 },
                 new Category
                 {
@@ -156,7 +171,8 @@ namespace Model.Migrations
                     Name = "Tuyển dụng",
                     slug = "tuyen-dung",
                     ParentId = 0,
-                    State = State.Active
+                    State = State.Active,
+                    Description = "a"
                 });
             context.SaveChanges();
         }

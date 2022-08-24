@@ -1,0 +1,123 @@
+﻿@model BaoVeSolution.WebApplication.DB.Entities.Blog
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa</h2>
+@section scripts{
+
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Content'), {
+            })
+            .then(editor => editor.enableReadOnlyMode('Content'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
+<h3>Bạn có muốn xóa ?</h3>
+<div>
+    <h4>tin tức</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+
+        @{
+            var listParentCategory = (List<BaoVeSolution.WebApplication.DB.Entities.Category>)Session["listParentCategory"];
+            var parrentCategory = listParentCategory.Where(x => x.Id == Model.CategoryId).FirstOrDefault();
+        }
+        @if (parrentCategory != null)
+        {
+            <dd>@parrentCategory.Name</dd>
+        }
+        else
+        {
+            <dd>Trống</dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            <img src="@Model.ImagePath" alt="blog image" style="width:400px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserCreated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserModified)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <textarea id="Content" class="form-control">
+                @Model.Content
+            </textarea>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

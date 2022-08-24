@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -47,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
@@ -134,10 +133,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogDetailsController.cs" />
     <Compile Include="Controllers\LayoutsController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="DB\BaoVeContext.cs" />
@@ -164,10 +166,112 @@
     <Compile Include="Migrations\202208221821250_UpdateDatabase.designer.cs">
       <DependentUpon>202208221821250_UpdateDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208230249457_FixDatabase.cs" />
+    <Compile Include="Migrations\202208230249457_FixDatabase.designer.cs">
+      <DependentUpon>202208230249457_FixDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208230322089_1.cs" />
+    <Compile Include="Migrations\202208230322089_1.Designer.cs">
+      <DependentUpon>202208230322089_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208230922489_3.cs" />
+    <Compile Include="Migrations\202208230922489_3.Designer.cs">
+      <DependentUpon>202208230922489_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208230936495_2.cs" />
+    <Compile Include="Migrations\202208230936495_2.Designer.cs">
+      <DependentUpon>202208230936495_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208230939572_4.cs" />
+    <Compile Include="Migrations\202208230939572_4.Designer.cs">
+      <DependentUpon>202208230939572_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Blog\Image\637968688529156690_z3618537502676_4c34bf2edde772c4f3363560a8c0a8b8.jpg" />
+    <Content Include="Content\Blog\Image\637968690726509619_Desktop - 1.png" />
+    <Content Include="Content\Blog\Image\637968692418493970_Desktop - 1.png" />
+    <Content Include="Content\Blog\Image\637968696394670924_bong-den-led-tron.jpg" />
+    <Content Include="Content\Blog\Image\637969257487491402_acquyotorockethanquoc3-1-600x600.jpg" />
+    <Content Include="Content\Blog\Image\637969272089869902_CV-1.5.jpg" />
+    <Content Include="Content\Blog\Image\637969272441273523_cv-8.jpg" />
+    <Content Include="Content\Blog\Image\637969273983319276_Desktop - 1.png" />
+    <Content Include="Content\Blog\Image\637969275640078163_led-bup-S.jpg" />
+    <Content Include="Content\Blog\Image\637969282246805331_CV-1.5.jpg" />
+    <Content Include="Content\Blog\Image\637969282904302245_CV-1.5.jpg" />
+    <Content Include="Content\Blog\Image\637969351825716129_CV-1.5.jpg" />
+    <Content Include="Content\Blog\Image\637969373875299290_bao-ve-dat-viet-giam-sat-hang-hoa-480x300.jpg" />
+    <Content Include="Content\Blog\Image\637969374703068167_bao-ve-dat-viet-giam-sat-hang-hoa-480x300.jpg" />
+    <Content Include="Content\ckeditor\ckeditor.js" />
+    <Content Include="Content\ckeditor\translations\af.js" />
+    <Content Include="Content\ckeditor\translations\ar.js" />
+    <Content Include="Content\ckeditor\translations\ast.js" />
+    <Content Include="Content\ckeditor\translations\az.js" />
+    <Content Include="Content\ckeditor\translations\bg.js" />
+    <Content Include="Content\ckeditor\translations\bn.js" />
+    <Content Include="Content\ckeditor\translations\bs.js" />
+    <Content Include="Content\ckeditor\translations\ca.js" />
+    <Content Include="Content\ckeditor\translations\cs.js" />
+    <Content Include="Content\ckeditor\translations\da.js" />
+    <Content Include="Content\ckeditor\translations\de-ch.js" />
+    <Content Include="Content\ckeditor\translations\de.js" />
+    <Content Include="Content\ckeditor\translations\el.js" />
+    <Content Include="Content\ckeditor\translations\en-au.js" />
+    <Content Include="Content\ckeditor\translations\en-gb.js" />
+    <Content Include="Content\ckeditor\translations\eo.js" />
+    <Content Include="Content\ckeditor\translations\es.js" />
+    <Content Include="Content\ckeditor\translations\et.js" />
+    <Content Include="Content\ckeditor\translations\eu.js" />
+    <Content Include="Content\ckeditor\translations\fa.js" />
+    <Content Include="Content\ckeditor\translations\fi.js" />
+    <Content Include="Content\ckeditor\translations\fr.js" />
+    <Content Include="Content\ckeditor\translations\gl.js" />
+    <Content Include="Content\ckeditor\translations\gu.js" />
+    <Content Include="Content\ckeditor\translations\he.js" />
+    <Content Include="Content\ckeditor\translations\hi.js" />
+    <Content Include="Content\ckeditor\translations\hr.js" />
+    <Content Include="Content\ckeditor\translations\hu.js" />
+    <Content Include="Content\ckeditor\translations\id.js" />
+    <Content Include="Content\ckeditor\translations\it.js" />
+    <Content Include="Content\ckeditor\translations\ja.js" />
+    <Content Include="Content\ckeditor\translations\jv.js" />
+    <Content Include="Content\ckeditor\translations\km.js" />
+    <Content Include="Content\ckeditor\translations\kn.js" />
+    <Content Include="Content\ckeditor\translations\ko.js" />
+    <Content Include="Content\ckeditor\translations\ku.js" />
+    <Content Include="Content\ckeditor\translations\lt.js" />
+    <Content Include="Content\ckeditor\translations\lv.js" />
+    <Content Include="Content\ckeditor\translations\ms.js" />
+    <Content Include="Content\ckeditor\translations\nb.js" />
+    <Content Include="Content\ckeditor\translations\ne.js" />
+    <Content Include="Content\ckeditor\translations\nl.js" />
+    <Content Include="Content\ckeditor\translations\no.js" />
+    <Content Include="Content\ckeditor\translations\oc.js" />
+    <Content Include="Content\ckeditor\translations\pl.js" />
+    <Content Include="Content\ckeditor\translations\pt-br.js" />
+    <Content Include="Content\ckeditor\translations\pt.js" />
+    <Content Include="Content\ckeditor\translations\ro.js" />
+    <Content Include="Content\ckeditor\translations\ru.js" />
+    <Content Include="Content\ckeditor\translations\si.js" />
+    <Content Include="Content\ckeditor\translations\sk.js" />
+    <Content Include="Content\ckeditor\translations\sl.js" />
+    <Content Include="Content\ckeditor\translations\sq.js" />
+    <Content Include="Content\ckeditor\translations\sr-latn.js" />
+    <Content Include="Content\ckeditor\translations\sr.js" />
+    <Content Include="Content\ckeditor\translations\sv.js" />
+    <Content Include="Content\ckeditor\translations\th.js" />
+    <Content Include="Content\ckeditor\translations\tk.js" />
+    <Content Include="Content\ckeditor\translations\tr.js" />
+    <Content Include="Content\ckeditor\translations\tt.js" />
+    <Content Include="Content\ckeditor\translations\ug.js" />
+    <Content Include="Content\ckeditor\translations\uk.js" />
+    <Content Include="Content\ckeditor\translations\ur.js" />
+    <Content Include="Content\ckeditor\translations\uz.js" />
+    <Content Include="Content\ckeditor\translations\vi.js" />
+    <Content Include="Content\ckeditor\translations\zh-cn.js" />
+    <Content Include="Content\ckeditor\translations\zh.js" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style.min.css" />
     <Content Include="Content\img\about.jpg" />
@@ -331,6 +435,21 @@
     <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
+    <Content Include="Content\ckeditor\ckeditor.js.map" />
+    <Content Include="Content\ckeditor\LICENSE.md" />
+    <Content Include="Content\ckeditor\README.md" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -359,6 +478,7 @@
     <Content Include="Views\Layouts\PageHeader.cshtml" />
     <Content Include="Views\MainPage\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\BlogDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -383,6 +503,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208221821250_UpdateDatabase.resx">
       <DependentUpon>202208221821250_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230249457_FixDatabase.resx">
+      <DependentUpon>202208230249457_FixDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230322089_1.resx">
+      <DependentUpon>202208230322089_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230922489_3.resx">
+      <DependentUpon>202208230922489_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230936495_2.resx">
+      <DependentUpon>202208230936495_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230939572_4.resx">
+      <DependentUpon>202208230939572_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -418,10 +553,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
