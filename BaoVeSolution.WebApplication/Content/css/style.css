@@ -4862,7 +4862,7 @@ a.badge:hover, a.badge:focus {
 }
 
 .badge-primary {
-  color: #212529;
+  color: #FFF;
   background-color: var(--primary);
 }
 

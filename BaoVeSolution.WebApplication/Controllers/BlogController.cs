@@ -1,4 +1,6 @@
 ﻿using BaoVeSolution.WebApplication.DB;
+using BaoVeSolution.WebApplication.DB.Base;
+using BaoVeSolution.WebApplication.DB.Entities;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -10,22 +12,38 @@ namespace BaoVeSolution.WebApplication.Controllers
 {
     public class BlogController : Controller
     {
-        public const int PageSize = 9;
+        public const int PageSize = 3;
         private BaoVeContext db = new BaoVeContext();
 
         // GET:
-        public ActionResult Index(int? categoryId, int page = 1, string keyword = null)
+        public ActionResult Index(int? id, int page = 1, string keyword = null)
         {
             keyword = keyword ?? "";
-            if (categoryId == null)
+            if (id == null)
             {
                 return RedirectToAction("Index", "MainPage");
             }
             else
             {
-                var blogs = db.Blogs.Where(b => b.CategoryId == categoryId).ToList();
-                ViewBag.Category = db.Categories.Find(categoryId);
-                return View(blogs.ToPagedList(page, PageSize));
+                var category = db.Categories.Find(id);
+                ViewBag.Category = category;
+
+                if (category.ParentId == 0)
+                {
+                    var childCaterories = db.Categories.Where(x => x.ParentId == id).ToList();
+                    var blogs = new List<Blog>();
+                    foreach (var c in childCaterories)
+                    {
+                        var blog = db.Blogs.Where(x => x.CategoryId == c.Id).ToList();
+                        blogs.AddRange(blog);
+                    }
+                    return View(blogs.OrderBy(x => x.DateCreated).Where(x => x.State == State.Active).ToPagedList(page, PageSize));
+                }
+                else
+                {
+                    var blogs = db.Blogs.Where(b => b.CategoryId == id).ToList();
+                    return View(blogs.OrderByDescending(x => x.DateCreated).Where(x => x.State == State.Active).ToPagedList(page, PageSize));
+                }
             }
         }
     }

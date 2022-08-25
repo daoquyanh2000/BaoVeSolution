@@ -31,6 +31,7 @@
         Html.RenderAction("Header", "Layouts");
 
     }
+
     @RenderBody()
     @{
         Html.RenderAction("Footer", "Layouts");
@@ -54,6 +55,6 @@
 
     <!-- Template Javascript -->
     <script src="~/Content/js/main.js"></script>
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -26,10 +26,10 @@
             {
                 <div class="col-lg-4 col-md-6 mb-5">
                     <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="@item.ImagePath" alt="">
+                        <img class="img-fluid rounded " style="min-width:200px" src="@item.ImagePath" alt="">
                         <div class="blog-date">
-                            <h5 class="font-weight-bold text-white mb-n1">@item.DateModified.Day</h5>
-                            <small class="text-white text-uppercase">Tháng @item.DateModified.Month</small>
+                            <h5 class="font-weight-bold text-white mb-n1">@item.DateCreated.Day</h5>
+                            <small class="text-white text-uppercase">Tháng @item.DateCreated.Month</small>
                         </div>
                     </div>
                     <div class="d-flex mb-2">
@@ -37,7 +37,7 @@
                     </div>
                     <h5 class="font-weight-medium mb-2">@item.Title</h5>
                     <p class="mb-4 cut-text">@item.Description</p>
-                    <a class="btn btn-sm btn-primary py-2" href="BlogDetails/@item.Id">Xem chi tiết</a>
+                    <a class="btn btn-sm btn-primary py-2" href="/BlogDetail/Index/@item.Id">Xem chi tiết</a>
                 </div>
             }
             <div class="col-12 row justify-content-center">

@@ -19,7 +19,6 @@ namespace Model.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             base.Seed(context);
-            context.Blogs.AddOrUpdate(new Blog() { State = State.Active, CategoryId = 2, DateCreated = DateTime.Now, DateModified = DateTime.Now, Description = "123", Id = 1, ImagePath = "123", Content = "helloae", Title = "blog 1 hướng dẫn chạy db", UserCreated = "admin" });
             context.Users.AddOrUpdate(new User() { State = State.Active, Email = "123@gmail.com", Id = 1, Password = "123456", PhoneNumber = "123456789", UserName = "admin" });
             var layout = new Layout()
             {
@@ -143,7 +142,7 @@ namespace Model.Migrations
                     Id = 11,
                     Name = "Lắp đặt bãi xe thông minh",
                     slug = "lap-dat-bai-xe-thong-minh",
-                    ParentId = 9,
+                    ParentId = 8,
                     State = State.Active,
                     Description = "a"
                 },
@@ -152,16 +151,7 @@ namespace Model.Migrations
                     Id = 12,
                     Name = "Tuyển dụng bảo vệ",
                     slug = "tuyen-dung-bao-ve",
-                    ParentId = 12,
-                    State = State.Active,
-                    Description = "a"
-                },
-                new Category
-                {
-                    Id = 13,
-                    Name = "Video",
-                    slug = "video",
-                    ParentId = 0,
+                    ParentId = 14,
                     State = State.Active,
                     Description = "a"
                 },

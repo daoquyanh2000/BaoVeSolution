@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {
@@ -17,7 +18,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if (Session["UserName"] != null)
+            if (User.Identity.IsAuthenticated && Session["UserName"] != null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -37,6 +38,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 {
                     Session["UserName"] = user.UserName;
                     Session["UserID"] = user.Id;
+                    FormsAuthentication.SetAuthCookie(user.UserName, false);
                     return Json(new
                     {
                         status = true,
@@ -69,6 +71,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         public ActionResult LogOut()
         {
             Session.Clear();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
         }
     }

@@ -56,11 +56,9 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giới thiệu</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="/gioi-thieu" class="dropdown-item">Về Khánh Toàn</a>
-
                                 @foreach (var item in category.Where(x => x.ParentId == 1).ToList())
                                 {
-                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="~/blog/index/@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
@@ -70,7 +68,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 5).ToList())
                                 {
-                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="~/blog/index/@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
@@ -79,22 +77,20 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 8).ToList())
                                 {
-                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="~/blog/index/@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
-                        <a href="/video" class="nav-item nav-link">Video</a>
-
                         <div class="nav-item dropdown">
                             <a href="tuyen-dung" class="nav-link dropdown-toggle" data-toggle="dropdown">Tuyển dụng</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 @foreach (var item in category.Where(x => x.ParentId == 14).ToList())
                                 {
-                                    <a href="/blog/Index?categoryId=@item.Id" class="dropdown-item">@item.Name</a>
+                                    <a href="~/blog/index/@item.Id" class="dropdown-item">@item.Name</a>
                                 }
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                        <a href="/contact" class="nav-item nav-link">Liên hệ</a>
                     </div>
                 </div>
             </nav>

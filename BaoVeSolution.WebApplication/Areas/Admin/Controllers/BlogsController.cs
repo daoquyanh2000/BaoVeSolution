@@ -13,6 +13,7 @@ using PagedList;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class BlogsController : Controller
     {
         private BaoVeContext db = new BaoVeContext();
@@ -96,7 +97,6 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // GET: Admin/Blogs/Edit/5
         public ActionResult Edit(long? id)
         {
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -203,7 +203,8 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
-        void SetSelectListItem()
+
+        private void SetSelectListItem()
         {
             var selectListItems = db.Categories.Where(x => x.ParentId != 0)
                 .OrderByDescending(x => x.Id)

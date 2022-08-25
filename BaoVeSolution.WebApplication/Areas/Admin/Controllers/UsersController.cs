@@ -11,6 +11,7 @@ using BaoVeSolution.WebApplication.DB.Entities;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         private BaoVeContext db = new BaoVeContext();

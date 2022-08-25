@@ -14,12 +14,15 @@ using PagedList;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CategoriesController : Controller
     {
         private BaoVeContext db = new BaoVeContext();
+
         private int pageSize = 9;
 
         // GET: Admin/Categories
+
         public ActionResult Index(int page = 1)
         {
             var categories = db.Categories.Where(x => x.ParentId != 0)
@@ -110,7 +113,6 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,ParentId,slug,Description,State")] Category category)
         {
-
             if (ModelState.IsValid)
             {
                 category.slug = ToUrlSlug(category.Name);
@@ -148,9 +150,9 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public static string ToUrlSlug(string value)
         {
-
             //First to lower case
             value = value.ToLowerInvariant();
 
@@ -172,6 +174,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 
             return value;
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

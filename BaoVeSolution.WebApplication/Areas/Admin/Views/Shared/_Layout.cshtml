@@ -152,7 +152,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark my-2">
                         <li>
-                            @Html.ActionLink("Thông tin tài khoản", "Details", "Users", new { id = Session["IDNV"] }, new { @class = "dropdown-item py-2" })
+                            @Html.ActionLink("Thông tin tài khoản", "Details", "Users", new { id = Session["UserID"] }, new { @class = "dropdown-item py-2" })
                         </li>
                         <li>
                             <a href="/admin/login/logout" class="dropdown-item py-2">Đăng xuất</a>

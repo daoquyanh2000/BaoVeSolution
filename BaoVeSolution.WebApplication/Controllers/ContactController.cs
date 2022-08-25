@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace BaoVeSolution.WebApplication.Controllers
 {
-    public class BlogDetailsController : Controller
+    public class ContactController : Controller
     {
-        // GET: BlogDetails
+        // GET: Contact
         public ActionResult Index()
         {
             return View();
