@@ -85,6 +85,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 }
                 blog.ImagePath = pathImage;
                 blog.DateCreated = DateTime.Now;
+                if (Session["UserName"] == null)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
                 blog.UserCreated = Session["UserName"].ToString();
                 db.Blogs.Add(blog);
                 db.SaveChanges();

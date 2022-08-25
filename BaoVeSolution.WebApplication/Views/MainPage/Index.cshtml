@@ -1,10 +1,11 @@
 ﻿@{
     ViewBag.Title = "Trang chủ";
     BaoVeSolution.WebApplication.DB.Entities.HomePage home = ViewBag.Home;
+    List<BaoVeSolution.WebApplication.DB.Entities.Blog> blogs = ViewBag.blogs;
 }
 @model BaoVeSolution.WebApplication.DB.Entities.Layout
 
-@{ 
+@{
     Html.RenderAction("Carousel", "Layouts");
 }
 @* Contact Info Start*@
@@ -135,64 +136,39 @@
 </div>
 @* Features End
     Blog Start*@
-<div class="container-fluid pt-5">
-    <div class="container pt-5">
+<!-- Blog Start -->
+<div class="container-fluid py-5">
+    <div class="container">
         <div class="row align-items-end mb-4">
             <div class="col-lg-6">
                 <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Bài viết mới nhất</h6>
-                <h1 class="section-title mb-3">Những bài viết gần đây</h1>
+                <h1 class="section-title mb-3">Những bài đăng gần đây</h1>
             </div>
             <div class="col-lg-6">
                 <h4 class="font-weight-normal text-muted mb-3">Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-1.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
+            @foreach (var item in blogs)
+            {
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="position-relative mb-4">
+                        <img class="img-fluid rounded " style="min-width:200px" src="@item.ImagePath" alt="">
+                        <div class="blog-date">
+                            <h5 class="font-weight-bold text-white mb-n1">@item.DateCreated.Day</h5>
+                            <small class="text-white text-uppercase">Tháng @item.DateCreated.Month</small>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-2.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
+                    <div class="d-flex mb-2">
+                        <a class="text-secondary text-uppercase font-weight-medium" href="">@item.UserCreated</a>
                     </div>
+                    <h5 class="font-weight-medium mb-2">@item.Title</h5>
+                    <p class="mb-4 cut-text">@item.Description</p>
+                    <a class="btn btn-sm btn-primary py-2" href="/BlogDetail/Index/@item.Id">Xem chi tiết</a>
                 </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-                <div class="position-relative mb-4">
-                    <img class="img-fluid rounded w-100" src="~/Content/img/blog-3.jpg" alt="">
-                    <div class="blog-date">
-                        <h4 class="font-weight-bold mb-n1">01</h4>
-                        <small class="text-white text-uppercase">Jan</small>
-                    </div>
-                </div>
-                <div class="d-flex mb-2">
-                    <a class="text-secondary text-uppercase font-weight-medium" href="">Cleaning</a>
-                </div>
-                <h5 class="font-weight-medium mb-2">Rebum lorem eos ipsum diam</h5>
-                <p class="mb-4">Dolor justo sea kasd lorem clita justo no diam amet. Kasd magna dolor amet</p>
-                <a class="btn btn-sm btn-primary py-2" href="">Read More</a>
-            </div>
+            }
         </div>
     </div>
 </div>
+<!-- Blog End -->
 @* Blog End*@

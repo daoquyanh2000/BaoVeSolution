@@ -44,7 +44,7 @@
                 <div class="mb-5" id="Content">
                     @Html.Raw(@Model.Content)
                 </div>
-                <div class="mb-5">
+@*                <div class="mb-5">
                     <h3 class="mb-4 section-title">3 Comments</h3>
                     <div class="media mb-4">
                         <img src="Content/img/user.jpg" alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
@@ -99,7 +99,7 @@
                             <input type="submit" value="Leave Comment" class="btn btn-primary">
                         </div>
                     </form>
-                </div>
+                </div>*@
             </div>
 
             <div class="col-lg-4 mt-5 mt-lg-0">
@@ -148,7 +148,7 @@
 
                                     }
                                     <small class="text-primary px-2">|</small>
-                                    <small><a class="text-secondary text-uppercase font-weight-medium" href="~/blog/@blog.CategoryId">@categories.Where(x => x.Id == blog.CategoryId).FirstOrDefault().Name</a></small>
+                                    <small><a class="text-secondary text-uppercase font-weight-medium" href="~/blog/Index/@blog.CategoryId">@categories.Where(x => x.Id == blog.CategoryId).FirstOrDefault().Name</a></small>
                                 </div>
                             </div>
                         </div>

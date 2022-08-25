@@ -54,7 +54,7 @@ namespace Model.Migrations
                     slug = "gioi-thieu",
                     ParentId = 0,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -63,7 +63,7 @@ namespace Model.Migrations
                     slug = "doi-tac-dat-viet",
                     ParentId = 1,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -72,7 +72,7 @@ namespace Model.Migrations
                     slug = "ho-so-nang-luc",
                     ParentId = 1,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -81,7 +81,7 @@ namespace Model.Migrations
                     slug = "danh-ba-bao-ve",
                     ParentId = 1,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -90,7 +90,7 @@ namespace Model.Migrations
                     slug = "tin-tuc",
                     ParentId = 0,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -99,7 +99,7 @@ namespace Model.Migrations
                     slug = "tin-khanh-toan",
                     ParentId = 5,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -108,7 +108,7 @@ namespace Model.Migrations
                     slug = "tin-tong-hop",
                     ParentId = 5,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -117,7 +117,7 @@ namespace Model.Migrations
                     slug = "dich-vu",
                     ParentId = 0,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -126,7 +126,7 @@ namespace Model.Migrations
                     slug = "dich-vu-bao-ve",
                     ParentId = 8,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -135,7 +135,7 @@ namespace Model.Migrations
                     slug = "lap-dat-camera-quan-sat",
                     ParentId = 8,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -144,16 +144,16 @@ namespace Model.Migrations
                     slug = "lap-dat-bai-xe-thong-minh",
                     ParentId = 8,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
                     Id = 12,
                     Name = "Tuyển dụng bảo vệ",
                     slug = "tuyen-dung-bao-ve",
-                    ParentId = 14,
+                    ParentId = 13,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 },
                 new Category
                 {
@@ -162,7 +162,7 @@ namespace Model.Migrations
                     slug = "tuyen-dung",
                     ParentId = 0,
                     State = State.Active,
-                    Description = "a"
+                    Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
                 });
             context.SaveChanges();
         }
