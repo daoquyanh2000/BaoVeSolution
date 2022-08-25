@@ -147,13 +147,15 @@
     <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomePagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LayoutsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\LayoutsController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="DB\BaoVeContext.cs" />
     <Compile Include="DB\Base\BaseEntities.cs" />
@@ -468,6 +470,16 @@
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Mvc.sitemap" />
+    <Content Include="Areas\Admin\Views\HomePages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -493,10 +505,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Layouts\Carousel.cshtml" />
-    <Content Include="Views\Layouts\Footer.cshtml" />
-    <Content Include="Views\Layouts\Header.cshtml" />
-    <Content Include="Views\Layouts\PageHeader.cshtml" />
+    <Content Include="Views\Layout\Carousel.cshtml" />
+    <Content Include="Views\Layout\Footer.cshtml" />
+    <Content Include="Views\Layout\Header.cshtml" />
+    <Content Include="Views\Layout\PageHeader.cshtml" />
     <Content Include="Views\MainPage\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogDetails\Index.cshtml" />

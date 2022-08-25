@@ -1,0 +1,57 @@
+﻿@model BaoVeSolution.WebApplication.DB.Entities.HomePage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Trang chủ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.YearsExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearsExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Award)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Award)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = 1 }) 
+</p>

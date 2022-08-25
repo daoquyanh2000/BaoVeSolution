@@ -11,30 +11,35 @@ using BaoVeSolution.WebApplication.DB.Entities;
 
 namespace BaoVeSolution.WebApplication.Controllers
 {
-    public class LayoutsController : Controller
+    public class LayoutController : Controller
     {
         private BaoVeContext db = new BaoVeContext();
+
         // GET: Layouts
         public ActionResult Carousel()
         {
             return View();
         }
+
         public ActionResult Header()
         {
             var layout = db.Layouts.ToList().FirstOrDefault();
             ViewBag.Category = db.Categories.ToList();
             return View(layout);
         }
+
         public ActionResult Footer()
         {
             var layout = db.Layouts.ToList().FirstOrDefault();
             return View(layout);
         }
+
         public ActionResult PageHeader()
         {
             var layout = db.Layouts.ToList().FirstOrDefault();
             return View(layout);
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
