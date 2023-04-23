@@ -6,7 +6,7 @@ namespace BaoVeSolution.WebApplication.DB
 {
     public class BaoVeContext : System.Data.Entity.DbContext
     {
-        public BaoVeContext() : base("BaoVeSolution")
+        public BaoVeContext() : base("BaoVeSolutionDocker")
         {
         }
 

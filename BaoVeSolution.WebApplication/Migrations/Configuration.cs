@@ -33,13 +33,14 @@ namespace Model.Migrations
                 ",
                 OpenTime = "Tất cả các ngày",
                 CloseTime = "Trừ thứ 7 và cn",
+                ApplicationName = "KHÁNH TOÀN"
             };
             var home = new HomePage()
             {
                 YearsExperience = 20,
                 Project = 33,
                 Award = 83,
-                Employees = 123,
+                Employees = 123,    
             };
             context.Layouts.AddOrUpdate(layout);
             context.HomePages.AddOrUpdate(home);
@@ -49,7 +50,7 @@ namespace Model.Migrations
                 {
                     Id = 1,
                     Name = "Giới thiệu",
-                    slug = "gioi-thieu",
+                    Slug = "gioi-thieu",
                     ParentId = 0,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -58,7 +59,7 @@ namespace Model.Migrations
                 {
                     Id = 2,
                     Name = "Đối tác Đất Việt",
-                    slug = "doi-tac-dat-viet",
+                    Slug = "doi-tac-dat-viet",
                     ParentId = 1,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -67,7 +68,7 @@ namespace Model.Migrations
                 {
                     Id = 3,
                     Name = "Hồ sơ năng lực",
-                    slug = "ho-so-nang-luc",
+                    Slug = "ho-so-nang-luc",
                     ParentId = 1,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -76,7 +77,7 @@ namespace Model.Migrations
                 {
                     Id = 4,
                     Name = "Danh bạ bảo vệ",
-                    slug = "danh-ba-bao-ve",
+                    Slug = "danh-ba-bao-ve",
                     ParentId = 1,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -85,7 +86,7 @@ namespace Model.Migrations
                 {
                     Id = 5,
                     Name = "Tin tức",
-                    slug = "tin-tuc",
+                    Slug = "tin-tuc",
                     ParentId = 0,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -94,7 +95,7 @@ namespace Model.Migrations
                 {
                     Id = 6,
                     Name = "Tin Khánh Toàn",
-                    slug = "tin-khanh-toan",
+                    Slug = "tin-khanh-toan",
                     ParentId = 5,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -103,7 +104,7 @@ namespace Model.Migrations
                 {
                     Id = 7,
                     Name = "Tin tổng hợp",
-                    slug = "tin-tong-hop",
+                    Slug = "tin-tong-hop",
                     ParentId = 5,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -112,7 +113,7 @@ namespace Model.Migrations
                 {
                     Id = 8,
                     Name = "Dịch vụ",
-                    slug = "dich-vu",
+                    Slug = "dich-vu",
                     ParentId = 0,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -121,7 +122,7 @@ namespace Model.Migrations
                 {
                     Id = 9,
                     Name = "Dịch vụ bảo vệ",
-                    slug = "dich-vu-bao-ve",
+                    Slug = "dich-vu-bao-ve",
                     ParentId = 8,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -130,7 +131,7 @@ namespace Model.Migrations
                 {
                     Id = 10,
                     Name = "Lắp đặt camera quan sát",
-                    slug = "lap-dat-camera-quan-sat",
+                    Slug = "lap-dat-camera-quan-sat",
                     ParentId = 8,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -139,7 +140,7 @@ namespace Model.Migrations
                 {
                     Id = 11,
                     Name = "Lắp đặt bãi xe thông minh",
-                    slug = "lap-dat-bai-xe-thong-minh",
+                    Slug = "lap-dat-bai-xe-thong-minh",
                     ParentId = 8,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -148,7 +149,7 @@ namespace Model.Migrations
                 {
                     Id = 12,
                     Name = "Tuyển dụng bảo vệ",
-                    slug = "tuyen-dung-bao-ve",
+                    Slug = "tuyen-dung-bao-ve",
                     ParentId = 13,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"
@@ -157,7 +158,7 @@ namespace Model.Migrations
                 {
                     Id = 14,
                     Name = "Tuyển dụng",
-                    slug = "tuyen-dung",
+                    Slug = "tuyen-dung",
                     ParentId = 0,
                     State = State.Active,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề của Công ty Bảo Vệ Khánh Toàn"

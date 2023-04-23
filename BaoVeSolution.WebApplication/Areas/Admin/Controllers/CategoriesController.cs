@@ -74,7 +74,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.slug = ToUrlSlug(category.Name);
+                category.Slug = ToUrlSlug(category.Name);
 
                 db.Categories.Add(category);
                 db.SaveChanges();
@@ -115,7 +115,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.slug = ToUrlSlug(category.Name);
+                category.Slug = ToUrlSlug(category.Name);
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

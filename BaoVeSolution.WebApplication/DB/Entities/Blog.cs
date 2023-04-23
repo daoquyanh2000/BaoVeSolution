@@ -12,6 +12,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Required]
         [Display(Name = "Danh mục chứa")]
         public long CategoryId { get; set; }
+        public Category Category { get; set; }
 
         [Column(TypeName = "datetime2")]
         [Display(Name = "Ngày tạo")]
@@ -37,9 +38,10 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public string Content { get; set; }
 
         [Display(Name = "Người tạo")]
-        public string UserCreated { get; set; }
+        public string UserNameCreated { get; set; }
 
         [Display(Name = "Người Sửa")]
-        public string UserModified { get; set; }
+        public string UserNameModified { get; set; }
+
     }
 }

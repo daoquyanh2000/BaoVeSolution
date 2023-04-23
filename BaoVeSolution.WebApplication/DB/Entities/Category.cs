@@ -21,10 +21,11 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public int ParentId { get; set; }
 
         [Display(Name = "Tên đường dẫn")]
-        public string slug { get; set; }
+        public string Slug { get; set; }
 
         [Required]
         [Display(Name = "Mô tả")]
         public string Description { get; set; }
+        public ICollection<Blog> Blogs{ get; set; }
     }
 }

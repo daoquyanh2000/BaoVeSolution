@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202208251016268_updateComment.Designer.cs">
       <DependentUpon>202208251016268_updateComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304231209312_AddForeignKey.cs" />
+    <Compile Include="Migrations\202304231209312_AddForeignKey.designer.cs">
+      <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -569,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208251016268_updateComment.resx">
       <DependentUpon>202208251016268_updateComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304231209312_AddForeignKey.resx">
+      <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

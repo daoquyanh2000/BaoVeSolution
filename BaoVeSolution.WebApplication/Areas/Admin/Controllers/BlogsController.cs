@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BaoVeSolution.WebApplication.DB;
@@ -60,7 +61,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Blog blog)
+        public async Task<ActionResult> CreateAsync(Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -85,11 +86,12 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 }
                 blog.ImagePath = pathImage;
                 blog.DateCreated = DateTime.Now;
+                blog.UserCreated = await db.Users.FindAsync(Session["UserID"]);
                 if (Session["UserName"] == null)
                 {
                     return RedirectToAction("Index", "Login");
                 }
-                blog.UserCreated = Session["UserName"].ToString();
+                blog.UserNameCreated = Session["UserName"].ToString();
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -122,7 +124,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Blog blog)
+        public async Task<ActionResult> EditAsync(Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -156,7 +158,8 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 }
                 blog.ImagePath = pathImage;
                 blog.DateModified = DateTime.Now;
-                blog.UserModified = Session["UserName"].ToString();
+                blog.UserNameModified = Session["UserName"].ToString();
+                blog.UserModified = await db.Users.FindAsync(Session["UserID"]);
                 db.Entry(blog).State = EntityState.Modified;
 
                 db.SaveChanges();

@@ -28,5 +28,8 @@ namespace BaoVeSolution.WebApplication.DB.Entities
 
         [Display(Name = "Giờ Đóng cửa")]
         public string CloseTime { get; set; }
+        [Display(Name = "Tên ứng dụng")]
+        [Required]
+        public string ApplicationName { get; set; }
     }
 }
