@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using BaoVeSolution.WebApplication.DB;
+using BaoVeSolution.WebApplication.DB.Entities;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using BaoVeSolution.WebApplication.DB;
-using BaoVeSolution.WebApplication.DB.Entities;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {

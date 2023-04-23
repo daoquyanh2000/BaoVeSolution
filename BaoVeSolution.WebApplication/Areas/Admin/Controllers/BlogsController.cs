@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BaoVeSolution.WebApplication.DB;
+using BaoVeSolution.WebApplication.DB.Entities;
+using PagedList;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using BaoVeSolution.WebApplication.DB;
-using BaoVeSolution.WebApplication.DB.Entities;
-using PagedList;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
 {
@@ -61,7 +59,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(Blog blog)
+        public async Task<ActionResult> Create(Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +122,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync(Blog blog)
+        public async Task<ActionResult> Edit(Blog blog)
         {
             if (ModelState.IsValid)
             {

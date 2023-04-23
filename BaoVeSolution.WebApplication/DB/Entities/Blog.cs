@@ -7,8 +7,9 @@ namespace BaoVeSolution.WebApplication.DB.Entities
 {
     public class Blog : BaseEntities
     {
+        [Key]
         public long Id { get; set; }
-
+        public Guid Guid { get; set; }
         [Required]
         [Display(Name = "Danh mục chứa")]
         public long CategoryId { get; set; }
