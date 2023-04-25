@@ -48,9 +48,12 @@
                     @Html.DisplayNameFor(model => model.UserCreated)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.UserModified)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.State)
                 </th>
-                <th></th>
+                <th>Chức năng</th>
             </tr>
         </thead>
 
@@ -87,9 +90,20 @@
                         @Html.DisplayFor(modelItem => item.UserCreated)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.UserModified)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.State)
                     </td>
                     <td>
+                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true && item.State == BlogState.Pending)
+                        {
+
+                            <span>
+                                @Html.ActionLink("Duyệt bài", "Approve", new { id = item.Id })
+                                |
+                            </span>
+                        }
                         @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
                         @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
                         @Html.ActionLink("Xóa", "Delete", new { id = item.Id })

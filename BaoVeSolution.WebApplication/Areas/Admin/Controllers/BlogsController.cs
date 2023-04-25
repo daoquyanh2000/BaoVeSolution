@@ -28,6 +28,19 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             return View(blogs);
         }
 
+        public ActionResult Approve(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Blog blog = db.Blogs.Find(id);
+            blog.State = BlogState.Active;
+            db.Entry(blog).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // GET: Admin/Blogs/Details/5
         public ActionResult Details(long? id)
         {
@@ -87,6 +100,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
+
+                if((bool)Session["UserIsAdmin"] == false)
+                    blog.State = BlogState.Pending;
+
                 blog.UserCreated = Session["UserName"].ToString();
                 blog.DateCreated = DateTime.Now;
                 blog.Guid = Guid.NewGuid();
@@ -154,6 +171,9 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                         pathImage = blog.ImagePath;
                     }
                 }
+                if ((bool)Session["UserIsAdmin"] == false)
+                    blog.State = BlogState.Pending;
+
                 blog.ImagePath = pathImage;
                 blog.DateModified = DateTime.Now;
                 blog.UserModified = Session["UserName"].ToString();

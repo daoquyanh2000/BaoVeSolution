@@ -7,7 +7,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
     {
         public ActionResult Index()
         {
-            if (!User.Identity.IsAuthenticated && Session["UserName"] == null)
+            if (!User.Identity.IsAuthenticated || Session["UserName"] == null)
             {
                 return RedirectToAction("Index", "Login");
             }
