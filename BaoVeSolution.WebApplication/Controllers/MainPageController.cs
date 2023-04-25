@@ -1,9 +1,6 @@
 ﻿using BaoVeSolution.WebApplication.DB;
-using BaoVeSolution.WebApplication.DB.Base;
-using System;
-using System.Collections.Generic;
+using BaoVeSolution.WebApplication.DB.Entities;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BaoVeSolution.WebApplication.Controllers
@@ -15,7 +12,7 @@ namespace BaoVeSolution.WebApplication.Controllers
         public ActionResult Index()
         {
             var layout = db.Layouts.ToList().FirstOrDefault();
-            var blogs = db.Blogs.OrderBy(x => x.UserNameCreated).Where(x => x.State == State.Active).Take(3).ToList();
+            var blogs = db.Blogs.OrderBy(x => x.UserCreated).Where(x => x.State == BlogState.Active).Take(3).ToList();
             ViewBag.blogs = blogs;
             ViewBag.Home = db.HomePages.ToList().FirstOrDefault();
             return View(layout);

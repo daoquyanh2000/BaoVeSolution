@@ -21,14 +21,14 @@
             <div class="col-lg-8">
                 <div class="mb-5">
                     <div class="d-flex mb-2">
-                        @if (string.IsNullOrEmpty(Model.UserNameModified))
+                        @if (string.IsNullOrEmpty(Model.UserModified))
                         {
-                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserNameCreated</a>
+                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserCreated</a>
 
                         }
                         else
                         {
-                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserNameModified</a>
+                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserModified</a>
 
 
                         }
@@ -101,7 +101,7 @@
                 </div>
             </form>
         </div>*@
-                <div class="fb-comments" data-href="https://localhost:44346/" data-width="100%" data-numposts="20"></div>
+                <div class="fb-comments" data-href="@ViewBag.CommentUrl" data-width="100%" data-numposts="20"></div>
 
             </div>
 
@@ -140,14 +140,14 @@
                             <div class="d-flex flex-column pl-3">
                                 <a class="text-dark mb-2" href="~/BlogDetail/Index/@blog.Id">@blog.Title</a>
                                 <div class="d-flex">
-                                    @if (string.IsNullOrEmpty(blog.UserNameModified))
+                                    @if (string.IsNullOrEmpty(blog.UserModified))
                                     {
-                                        <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserNameCreated</a></small>
+                                        <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserCreated</a></small>
 
                                     }
                                     else
                                     {
-                                        <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserNameModified</a></small>
+                                        <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserModified</a></small>
 
                                     }
                                     <small class="text-primary px-2">|</small>

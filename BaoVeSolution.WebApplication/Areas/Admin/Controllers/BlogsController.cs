@@ -59,7 +59,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Blog blog)
+        public ActionResult Create(Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -83,13 +83,13 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                     }
                 }
                 blog.ImagePath = pathImage;
-                blog.DateCreated = DateTime.Now;
-                blog.UserCreated = await db.Users.FindAsync(Session["UserID"]);
                 if (Session["UserName"] == null)
                 {
                     return RedirectToAction("Index", "Login");
                 }
-                blog.UserNameCreated = Session["UserName"].ToString();
+                blog.UserCreated = Session["UserName"].ToString();
+                blog.DateCreated = DateTime.Now;
+                blog.Guid = Guid.NewGuid();
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -122,7 +122,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Blog blog)
+        public ActionResult Edit(Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -156,8 +156,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 }
                 blog.ImagePath = pathImage;
                 blog.DateModified = DateTime.Now;
-                blog.UserNameModified = Session["UserName"].ToString();
-                blog.UserModified = await db.Users.FindAsync(Session["UserID"]);
+                blog.UserModified = Session["UserName"].ToString();
                 db.Entry(blog).State = EntityState.Modified;
 
                 db.SaveChanges();

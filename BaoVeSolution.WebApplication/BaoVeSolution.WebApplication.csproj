@@ -213,6 +213,10 @@
     <Compile Include="Migrations\202304231931222_AddBlogGuid.Designer.cs">
       <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304251850093_UpdateUser.cs" />
+    <Compile Include="Migrations\202304251850093_UpdateUser.designer.cs">
+      <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -584,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304231931222_AddBlogGuid.resx">
       <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304251850093_UpdateUser.resx">
+      <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -42,6 +42,9 @@
         <th>
             @Html.DisplayNameFor(model => model.State)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </th>
         <th></th>
     </tr>
 
@@ -63,9 +66,12 @@
             @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Chi tiết", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

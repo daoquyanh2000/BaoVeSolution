@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class Blog : BaseEntities
+    public class Blog 
     {
         [Key]
         public long Id { get; set; }
@@ -39,10 +39,22 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public string Content { get; set; }
 
         [Display(Name = "Người tạo")]
-        public string UserNameCreated { get; set; }
+        public string UserCreated { get; set; }
 
         [Display(Name = "Người Sửa")]
-        public string UserNameModified { get; set; }
+        public string UserModified { get; set; }
+        [Display(Name = "Trạng thái bài viết")]
 
+        public BlogState State { get; set; }
+    }
+    public enum BlogState
+    {
+        [Display(Name = "Hạn chế")]
+        Inactive,
+        [Display(Name = "Đang chờ duyệt")]
+        Pending,
+
+        [Display(Name = "Đang hoạt động")]
+        Active
     }
 }

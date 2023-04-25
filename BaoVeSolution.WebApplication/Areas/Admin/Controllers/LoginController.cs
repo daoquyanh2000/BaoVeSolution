@@ -35,6 +35,8 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 {
                     Session["UserName"] = user.UserName;
                     Session["UserID"] = user.Id;
+                    Session["UserIsAdmin"] = user.IsAdmin;
+                    Session["UserModel"] = user;
                     FormsAuthentication.SetAuthCookie(user.UserName, false);
                     return Json(new
                     {

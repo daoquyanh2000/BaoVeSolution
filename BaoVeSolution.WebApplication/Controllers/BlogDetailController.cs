@@ -1,8 +1,7 @@
 ﻿using BaoVeSolution.WebApplication.DB;
-using BaoVeSolution.WebApplication.DB.Base;
-using System;
-using System.Collections.Generic;
+using BaoVeSolution.WebApplication.DB.Entities;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,17 +14,20 @@ namespace BaoVeSolution.WebApplication.Controllers
         // GET: BlogDetails
         public ActionResult Index(int? id)
         {
-            var categories = db.Categories.Where(x => x.State == State.Active).ToList();
+            var blog = db.Blogs.Find(id);
+            if (blog == null)
+                return RedirectToAction("Index", "MainPage");
+            var categories = db.Categories.Where(x => x.State == DB.Base.State.Active).ToList();
             ViewBag.categories = categories;
 
-            var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.State == State.Active).ToList();
+            var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.State == BlogState.Active).ToList();
             ViewBag.blogs = blogs;
 
             var layout = db.Layouts.ToList().FirstOrDefault();
 
             ViewBag.ApplicationName = layout.ApplicationName;
 
-            var blog = db.Blogs.Find(id);
+            ViewBag.CommentUrl = Request.Url.AbsoluteUri;
             return View(blog);
         }
     }

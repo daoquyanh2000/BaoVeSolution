@@ -9,8 +9,6 @@ namespace BaoVeSolution.WebApplication.DB.Base
         [Required]
         [Display(Name = "Trạng thái")]
         public State State { get; set; }
-        public User UserCreated { get; set; }
-        public User UserModified { get; set; }
     }
 
     public enum State

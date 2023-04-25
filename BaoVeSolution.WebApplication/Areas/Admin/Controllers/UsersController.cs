@@ -44,7 +44,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserName,Password,PhoneNumber,Email,State")] User user)
+        public ActionResult Create( User user)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserName,Password,PhoneNumber,Email,State")] User user)
+        public ActionResult Edit(User user)
         {
             if (ModelState.IsValid)
             {
