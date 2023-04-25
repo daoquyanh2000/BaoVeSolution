@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<BaoVeSolution.WebApplication.DB.Entities.Category> categories = ViewBag.categories;
     List<BaoVeSolution.WebApplication.DB.Entities.Blog> blogs = ViewBag.blogs;
+    var applicationName = ViewBag.ApplicationName;
 }
 
 <style>
@@ -163,7 +164,7 @@
 
                 <div>
                     <h3 class="mb-4 section-title">Cung cấp dịch vụ bảo vệ chất lượng nhất</h3>
-                    Để xây dựng dịch vụ bảo vệ chất lượng cao. Khánh Toàn không ngừng đổi mới. Chúng tôi luôn tuân thủ pháp luật, duy trì các tiêu chuẩn đạo đức trong kinh doanh. Với đội ngũ chuyên gia an ninh giàu kinh nghiệm trong ngành bảo vệ được trang bị công cụ hỗ trợ chuyên dụng hiện đại. Cùng với giải pháp kiểm soát chất lượng dịch vụ qua hệ thống camera quan sát được lắp đặt miễn phí tại các mục tiêu bảo vệ. Khánh Toàn luôn đem đến cho khách hàng một chất lượng dịch vụ hoàn hảo, đảm bảo an toàn tài sản cho Quý khách hàng.
+                    Để xây dựng dịch vụ bảo vệ chất lượng cao. @applicationName không ngừng đổi mới. Chúng tôi luôn tuân thủ pháp luật, duy trì các tiêu chuẩn đạo đức trong kinh doanh. Với đội ngũ chuyên gia an ninh giàu kinh nghiệm trong ngành bảo vệ được trang bị công cụ hỗ trợ chuyên dụng hiện đại. Cùng với giải pháp kiểm soát chất lượng dịch vụ qua hệ thống camera quan sát được lắp đặt miễn phí tại các mục tiêu bảo vệ. @applicationName luôn đem đến cho khách hàng một chất lượng dịch vụ hoàn hảo, đảm bảo an toàn tài sản cho Quý khách hàng.
                 </div>
             </div>
         </div>

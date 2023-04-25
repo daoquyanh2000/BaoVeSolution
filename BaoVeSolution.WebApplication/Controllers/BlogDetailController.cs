@@ -21,6 +21,10 @@ namespace BaoVeSolution.WebApplication.Controllers
             var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.State == State.Active).ToList();
             ViewBag.blogs = blogs;
 
+            var layout = db.Layouts.ToList().FirstOrDefault();
+
+            ViewBag.ApplicationName = layout.ApplicationName;
+
             var blog = db.Blogs.Find(id);
             return View(blog);
         }

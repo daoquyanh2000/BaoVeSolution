@@ -245,51 +245,9 @@
             @RenderBody()
         </div>
     </main>
-    <!-- footer start -->
-    <footer class="navbar navbar-dark bg-dark ">
-        <div class="container-fluid">
-            <div class="navbar-nav">
-                <small class="navbar-item">
-                    <a href="" class="nav-link">
-                        <span class="me-2">
-                            <i class="bi bi-building"></i>
-                        </span>
-                        đây là footer
-                    </a>
-                </small>
-                <small class="navbar-item">
-                    <a href="" class="nav-link">
-                        <span class="me-2">
-                            <i class="bi bi-geo-alt-fill"></i>
-                        </span>
-                        địa chỉ
-                    </a>
-                </small>
-                <small class="navbar-item">
-                    <a href="" class="nav-link">
-                        <span class="me-2">
-                            <i class="bi bi-envelope-fill"></i>
-                        </span>
-                        lutru@gmail.com
-                    </a>
-                </small>
-                <small class="navbar-item">
-                    <a href="" class="nav-link">
-                        <span class="me-2">
-                            <i class="bi bi-telephone-fill"></i>
-                        </span>
-                        (+84) 773 - 80.08
-                    </a>
-                </small>
-                <small class="navbar-item">
-                    <a href="" class="nav-link active">
-                        Copyright © 2018-2019 . All rights reserved.
-                    </a>
-                </small>
-            </div>
-        </div>
-    </footer>
-    <!-- footer end -->
+    @{
+        Html.RenderAction("Footer", "Layouts");
+    }
 </body>
 </html>
 <script>

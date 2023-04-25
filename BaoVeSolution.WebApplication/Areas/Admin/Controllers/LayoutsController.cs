@@ -1,6 +1,9 @@
 ﻿using BaoVeSolution.WebApplication.DB;
 using BaoVeSolution.WebApplication.DB.Entities;
+using Microsoft.Ajax.Utilities;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -10,6 +13,11 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
     {
         private BaoVeContext db = new BaoVeContext();
 
+        public ActionResult Footer()
+        {
+            var layout = db.Layouts.ToList().FirstOrDefault();
+            return View(layout);
+        }
         // GET: Admin/Layouts
         public ActionResult Index()
         {
@@ -41,7 +49,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Address,PhoneNumber,Email,Description,OpenTime,CloseTime")] Layout layout)
+        public ActionResult Edit(Layout layout)
         {
             if (ModelState.IsValid)
             {

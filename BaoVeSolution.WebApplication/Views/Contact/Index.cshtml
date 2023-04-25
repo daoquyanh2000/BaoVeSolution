@@ -2,6 +2,7 @@
     ViewBag.Title = "Liên hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model BaoVeSolution.WebApplication.DB.Entities.Layout
 
 <!-- Contact Start -->
 <div class="container-fluid py-5">
@@ -9,7 +10,7 @@
         <div class="row align-items-end mb-4">
             <div class="col-lg-6">
                 <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Liên hệ</h6>
-                <h1 class="section-title mb-3">Công ty dịch vụ bảo vệ Khánh Toàn</h1>
+                <h1 class="section-title mb-3">Công ty dịch vụ bảo vệ @Model.ApplicationName</h1>
             </div>
             <div class="col-lg-6">
                 <h4 class="font-weight-normal text-muted mb-3">Liên hệ chúng tôi để được phục vụ sớm nhất</h4>

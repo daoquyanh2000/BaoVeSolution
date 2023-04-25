@@ -209,6 +209,10 @@
     <Compile Include="Migrations\202304231209312_AddForeignKey.designer.cs">
       <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304231931222_AddBlogGuid.cs" />
+    <Compile Include="Migrations\202304231931222_AddBlogGuid.Designer.cs">
+      <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -479,6 +483,7 @@
     <Content Include="Areas\Admin\Views\HomePages\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HomePages\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HomePages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Layouts\Footer.cshtml" />
     <Content Include="Areas\Admin\Views\Layouts\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Layouts\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Layouts\Details.cshtml" />
@@ -576,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304231209312_AddForeignKey.resx">
       <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304231931222_AddBlogGuid.resx">
+      <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,7 +18,8 @@ namespace BaoVeSolution.WebApplication.Controllers
         // GET: Layouts
         public ActionResult Carousel()
         {
-            return View();
+            var layout = db.Layouts.ToList().FirstOrDefault();
+            return View(layout);
         }
 
         public ActionResult Header()

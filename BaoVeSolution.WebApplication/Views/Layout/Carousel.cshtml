@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+@model BaoVeSolution.WebApplication.DB.Entities.Layout
+
 <!-- Carousel Start -->
 <div class="container-fluid p-0">
     <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -14,7 +16,7 @@
                 <img class="img-fluid" style="width:100%" src="~/Content/img/slide-small-3.png" alt="Image">
                 <div class="carousel-caption d-flex align-items-center justify-content-center">
                     <div class="p-5" style="width: 100%; max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ Khánh Toàn</h5>
+                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ @Model.ApplicationName</h5>
                         <h1 class="display-3 text-white mb-md-4">Cung cấp dịch vụ chất lượng </h1>
                         <a href="" class="btn btn-primary">Xem chi tiết</a>
                     </div>
@@ -24,7 +26,7 @@
                 <img class="img-fluid" style="width:100%" src="~/Content/img/slide-small-5.png" alt="Image">
                 <div class="carousel-caption d-flex align-items-center justify-content-center">
                     <div class="p-5" style="width: 100%; max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ Khánh Toàn</h5>
+                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ @Model.ApplicationName</h5>
                         <h1 class="display-3 text-white mb-md-4">Cung cấp dịch vụ chuyên nghiệp</h1>
                         <a href="" class="btn btn-primary">Xem chi tiết</a>
                     </div>
@@ -34,7 +36,7 @@
                 <img class="img-fluid" style="width:100%" src="~/Content/img/slide-small-6.png" alt="Image">
                 <div class="carousel-caption d-flex align-items-center justify-content-center">
                     <div class="p-5" style="width: 100%; max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ Khánh Toàn</h5>
+                        <h5 class="text-white text-uppercase mb-md-3">bảo vệ @Model.ApplicationName</h5>
                         <h1 class="display-3 text-white mb-md-4">Nhân viên chuyên nghiệp và giàu kinh nghiệm</h1>
                         <a href="" class="btn btn-primary">Xem chi tiết</a>
                     </div>

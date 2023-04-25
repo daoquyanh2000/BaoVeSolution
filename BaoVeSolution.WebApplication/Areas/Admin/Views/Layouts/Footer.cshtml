@@ -1,0 +1,43 @@
+﻿@model BaoVeSolution.WebApplication.DB.Entities.Layout
+<!-- footer start -->
+@{
+    Layout = null;
+}
+<footer class="navbar navbar-dark bg-dark " style=" height: 200px;">
+    <div class="container-fluid">
+        <div class="navbar-nav">
+            <small class="navbar-item">
+                <a href="" class="nav-link">
+                    <span class="me-2">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </span>
+                    @Model.Address
+                </a>
+            </small>
+            <small class="navbar-item">
+                <a href="" class="nav-link">
+                    <span class="me-2">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+                    @Model.Email
+
+                </a>
+            </small>
+            <small class="navbar-item">
+                <a href="" class="nav-link">
+                    <span class="me-2">
+                        <i class="bi bi-telephone-fill"></i>
+                    </span>
+                    @Model.PhoneNumber
+                </a>
+            </small>
+            <small class="navbar-item">
+                <a href="" class="nav-link active">
+                    Copyright © 2022-2023 . All rights reserved.
+                </a>
+            </small>
+        </div>
+    </div>
+</footer>
+
+<!-- footer end -->
