@@ -186,13 +186,15 @@
 
                             <div class="collapse" id="collapseExample">
                                 <ul class="navbar-dark">
-                                    <li class="navbar-nav">
-                                        <a href="/admin/users" class="nav-link">
-                                            <i class="bi bi-person-circle"></i>
-                                            Người dùng
-                                        </a>
-                                    </li>
-
+                                    @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
+                                    {
+                                        <li class="navbar-nav">
+                                            <a href="/admin/users" class="nav-link">
+                                                <i class="bi bi-person-circle"></i>
+                                                Người dùng
+                                            </a>
+                                        </li>
+                                    }
                                     <li class="navbar-nav">
                                         <a href="/admin/categories" class="nav-link">
                                             <i class="bi bi-box-seam"></i>
@@ -208,31 +210,35 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="sidebar-item">
-                            <hr class="dropdown-divider">
-                        </li>
-                        <!-- sidebar item 2 end-->
-                        <!-- sidebar item 3 start-->
-                        <li class="sidebar-item">
-                            <a href="/admin/HomePages" class="nav-link">
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                                Chỉnh sửa trang chủ
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <hr class="dropdown-divider">
-                        </li>
-                        <!-- sidebar item 3 start-->
+                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
+                        {
+                            <li class="sidebar-item">
+                                <hr class="dropdown-divider">
+                            </li>
+                            <!-- sidebar item 2 end-->
+                            <!-- sidebar item 3 start-->
+                            <li class="sidebar-item">
+                                <a href="/admin/HomePages" class="nav-link">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    Chỉnh sửa trang chủ
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <hr class="dropdown-divider">
+                            </li>
+                            <!-- sidebar item 3 start-->
 
-                        <li class="sidebar-item">
-                            <a href="/admin/Layouts" class="nav-link">
-                                <i class="fa-solid fa-wrench"></i>
-                                Chỉnh sửa Layout
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <hr class="dropdown-divider">
-                        </li>
+                            <li class="sidebar-item">
+                                <a href="/admin/Layouts" class="nav-link">
+                                    <i class="fa-solid fa-wrench"></i>
+                                    Chỉnh sửa Layout
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <hr class="dropdown-divider">
+                            </li>
+                        }
+
                     </ul>
                 </nav>
             </div>

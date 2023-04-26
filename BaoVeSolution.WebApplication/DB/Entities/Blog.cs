@@ -8,11 +8,12 @@ namespace BaoVeSolution.WebApplication.DB.Entities
     public class Blog 
     {
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public Guid Guid { get; set; }
         [Required]
         [Display(Name = "Danh mục chứa")]
-        public long CategoryId { get; set; }
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
         [Column(TypeName = "datetime2")]

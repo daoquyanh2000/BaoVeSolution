@@ -161,6 +161,7 @@
     <Compile Include="DB\Base\BaseEntities.cs" />
     <Compile Include="DB\Entities\Blog.cs" />
     <Compile Include="DB\Entities\Category.cs" />
+    <Compile Include="DB\Entities\SubComment.cs" />
     <Compile Include="DB\Entities\Comment.cs" />
     <Compile Include="DB\Entities\HomePage.cs" />
     <Compile Include="DB\Entities\Layout.cs" />
@@ -216,6 +217,14 @@
     <Compile Include="Migrations\202304251850093_UpdateUser.cs" />
     <Compile Include="Migrations\202304251850093_UpdateUser.designer.cs">
       <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304261931468_AddSubCommentEntity.cs" />
+    <Compile Include="Migrations\202304261931468_AddSubCommentEntity.designer.cs">
+      <DependentUpon>202304261931468_AddSubCommentEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304261937208_FixForeignKey.cs" />
+    <Compile Include="Migrations\202304261937208_FixForeignKey.designer.cs">
+      <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -591,6 +600,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304251850093_UpdateUser.resx">
       <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304261931468_AddSubCommentEntity.resx">
+      <DependentUpon>202304261931468_AddSubCommentEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304261937208_FixForeignKey.resx">
+      <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
