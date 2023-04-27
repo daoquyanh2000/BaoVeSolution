@@ -35,7 +35,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Blog blog = db.Blogs.Find(id);
-            blog.State = BlogState.Active;
+            blog.BlogState = BlogState.Active;
             db.Entry(blog).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -102,7 +102,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 }
 
                 if((bool)Session["UserIsAdmin"] == false)
-                    blog.State = BlogState.Pending;
+                    blog.BlogState = BlogState.Pending;
 
                 blog.UserCreated = Session["UserName"].ToString();
                 blog.DateCreated = DateTime.Now;
@@ -172,7 +172,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                     }
                 }
                 if ((bool)Session["UserIsAdmin"] == false)
-                    blog.State = BlogState.Pending;
+                    blog.BlogState = BlogState.Pending;
 
                 blog.ImagePath = pathImage;
                 blog.DateModified = DateTime.Now;

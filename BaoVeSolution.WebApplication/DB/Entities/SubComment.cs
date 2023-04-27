@@ -18,7 +18,6 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public int ParentId{ get; set; }
         [ForeignKey("ParentId")]
         public Comment ParentComment{ get; set; }
-
         [Required]
         public string Name { get; set; }
 

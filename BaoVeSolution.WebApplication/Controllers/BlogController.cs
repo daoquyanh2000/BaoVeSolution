@@ -37,12 +37,12 @@ namespace BaoVeSolution.WebApplication.Controllers
                         var blog = db.Blogs.Where(x => x.CategoryId == c.Id).ToList();
                         blogs.AddRange(blog);
                     }
-                    return View(blogs.OrderBy(x => x.DateCreated).Where(x => x.State == BlogState.Active).ToPagedList(page, PageSize));
+                    return View(blogs.OrderBy(x => x.DateCreated).Where(x => x.BlogState == BlogState.Active).ToPagedList(page, PageSize));
                 }
                 else
                 {
                     var blogs = db.Blogs.Where(b => b.CategoryId == id).ToList();
-                    return View(blogs.OrderByDescending(x => x.DateCreated).Where(x => x.State == BlogState.Active).ToPagedList(page, PageSize));
+                    return View(blogs.OrderByDescending(x => x.DateCreated).Where(x => x.BlogState == BlogState.Active).ToPagedList(page, PageSize));
                 }
             }
         }

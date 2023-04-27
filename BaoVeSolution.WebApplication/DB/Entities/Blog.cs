@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class Blog 
+    public class Blog : BaseEntities
     {
         [Key]
         public int Id { get; set; }
@@ -13,7 +13,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Required]
         [Display(Name = "Danh mục chứa")]
         public int CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
+        [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
 
         [Column(TypeName = "datetime2")]
@@ -46,7 +46,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public string UserModified { get; set; }
         [Display(Name = "Trạng thái bài viết")]
 
-        public BlogState State { get; set; }
+        public BlogState BlogState { get; set; }
     }
     public enum BlogState
     {

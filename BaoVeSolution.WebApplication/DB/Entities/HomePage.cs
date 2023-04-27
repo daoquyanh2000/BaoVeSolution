@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class HomePage : BaseEntities
+    public class HomePage
     {
         public int Id { get; set; }
 

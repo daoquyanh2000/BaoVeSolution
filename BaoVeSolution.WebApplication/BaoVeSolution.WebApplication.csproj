@@ -226,6 +226,14 @@
     <Compile Include="Migrations\202304261937208_FixForeignKey.designer.cs">
       <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304271102120_AddForeignKeyUser.cs" />
+    <Compile Include="Migrations\202304271102120_AddForeignKeyUser.designer.cs">
+      <DependentUpon>202304271102120_AddForeignKeyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304271122289_AddForeignKeyUser2.cs" />
+    <Compile Include="Migrations\202304271122289_AddForeignKeyUser2.designer.cs">
+      <DependentUpon>202304271122289_AddForeignKeyUser2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -606,6 +614,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304261937208_FixForeignKey.resx">
       <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304271102120_AddForeignKeyUser.resx">
+      <DependentUpon>202304271102120_AddForeignKeyUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304271122289_AddForeignKeyUser2.resx">
+      <DependentUpon>202304271122289_AddForeignKeyUser2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

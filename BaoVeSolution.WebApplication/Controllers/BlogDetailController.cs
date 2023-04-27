@@ -20,7 +20,7 @@ namespace BaoVeSolution.WebApplication.Controllers
             var categories = db.Categories.Where(x => x.State == DB.Base.State.Active).ToList();
             ViewBag.categories = categories;
 
-            var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.State == BlogState.Active).ToList();
+            var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.BlogState == BlogState.Active).ToList();
             ViewBag.blogs = blogs;
 
             var layout = db.Layouts.ToList().FirstOrDefault();
