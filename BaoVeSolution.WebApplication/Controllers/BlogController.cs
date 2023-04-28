@@ -27,7 +27,6 @@ namespace BaoVeSolution.WebApplication.Controllers
             {
                 var category = db.Categories.Find(id);
                 ViewBag.Category = category;
-
                 if (category.ParentId == 0)
                 {
                     var childCaterories = db.Categories.Where(x => x.ParentId == id).ToList();

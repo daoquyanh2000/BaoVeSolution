@@ -44,16 +44,7 @@
             @Html.DisplayFor(model => model.Employees)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
     </dl>
-
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 

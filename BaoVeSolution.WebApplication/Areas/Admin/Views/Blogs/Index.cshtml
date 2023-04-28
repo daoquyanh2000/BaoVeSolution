@@ -51,7 +51,7 @@
                     @Html.DisplayNameFor(model => model.UserModified)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.State)
+                    @Html.DisplayNameFor(model => model.BlogState)
                 </th>
                 <th>Chức năng</th>
             </tr>
@@ -93,10 +93,10 @@
                         @Html.DisplayFor(modelItem => item.UserModified)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.State)
+                        @Html.DisplayFor(modelItem => item.BlogState)
                     </td>
                     <td>
-                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true && item.State == BlogState.Pending)
+                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true && item.BlogState == BlogState.Pending)
                         {
 
                             <span>

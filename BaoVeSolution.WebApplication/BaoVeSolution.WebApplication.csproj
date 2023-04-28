@@ -170,69 +170,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208220638019_InitialDatabase.cs" />
-    <Compile Include="Migrations\202208220638019_InitialDatabase.designer.cs">
-      <DependentUpon>202208220638019_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208220729538_AddUser.cs" />
-    <Compile Include="Migrations\202208220729538_AddUser.Designer.cs">
-      <DependentUpon>202208220729538_AddUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208221821250_UpdateDatabase.cs" />
-    <Compile Include="Migrations\202208221821250_UpdateDatabase.designer.cs">
-      <DependentUpon>202208221821250_UpdateDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230249457_FixDatabase.cs" />
-    <Compile Include="Migrations\202208230249457_FixDatabase.designer.cs">
-      <DependentUpon>202208230249457_FixDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230322089_1.cs" />
-    <Compile Include="Migrations\202208230322089_1.Designer.cs">
-      <DependentUpon>202208230322089_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230922489_3.cs" />
-    <Compile Include="Migrations\202208230922489_3.Designer.cs">
-      <DependentUpon>202208230922489_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230936495_2.cs" />
-    <Compile Include="Migrations\202208230936495_2.Designer.cs">
-      <DependentUpon>202208230936495_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230939572_4.cs" />
-    <Compile Include="Migrations\202208230939572_4.Designer.cs">
-      <DependentUpon>202208230939572_4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208251016268_updateComment.cs" />
-    <Compile Include="Migrations\202208251016268_updateComment.Designer.cs">
-      <DependentUpon>202208251016268_updateComment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304231209312_AddForeignKey.cs" />
-    <Compile Include="Migrations\202304231209312_AddForeignKey.designer.cs">
-      <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304231931222_AddBlogGuid.cs" />
-    <Compile Include="Migrations\202304231931222_AddBlogGuid.Designer.cs">
-      <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304251850093_UpdateUser.cs" />
-    <Compile Include="Migrations\202304251850093_UpdateUser.designer.cs">
-      <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304261931468_AddSubCommentEntity.cs" />
-    <Compile Include="Migrations\202304261931468_AddSubCommentEntity.designer.cs">
-      <DependentUpon>202304261931468_AddSubCommentEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304261937208_FixForeignKey.cs" />
-    <Compile Include="Migrations\202304261937208_FixForeignKey.designer.cs">
-      <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304271102120_AddForeignKeyUser.cs" />
-    <Compile Include="Migrations\202304271102120_AddForeignKeyUser.designer.cs">
-      <DependentUpon>202304271102120_AddForeignKeyUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304271122289_AddForeignKeyUser2.cs" />
-    <Compile Include="Migrations\202304271122289_AddForeignKeyUser2.designer.cs">
-      <DependentUpon>202304271122289_AddForeignKeyUser2.cs</DependentUpon>
+    <Compile Include="Migrations\202304280257092_InitialDatabase2.cs" />
+    <Compile Include="Migrations\202304280257092_InitialDatabase2.designer.cs">
+      <DependentUpon>202304280257092_InitialDatabase2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -562,6 +502,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -573,53 +514,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208220638019_InitialDatabase.resx">
-      <DependentUpon>202208220638019_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208220729538_AddUser.resx">
-      <DependentUpon>202208220729538_AddUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208221821250_UpdateDatabase.resx">
-      <DependentUpon>202208221821250_UpdateDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230249457_FixDatabase.resx">
-      <DependentUpon>202208230249457_FixDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230322089_1.resx">
-      <DependentUpon>202208230322089_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230922489_3.resx">
-      <DependentUpon>202208230922489_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230936495_2.resx">
-      <DependentUpon>202208230936495_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230939572_4.resx">
-      <DependentUpon>202208230939572_4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208251016268_updateComment.resx">
-      <DependentUpon>202208251016268_updateComment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304231209312_AddForeignKey.resx">
-      <DependentUpon>202304231209312_AddForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304231931222_AddBlogGuid.resx">
-      <DependentUpon>202304231931222_AddBlogGuid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304251850093_UpdateUser.resx">
-      <DependentUpon>202304251850093_UpdateUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304261931468_AddSubCommentEntity.resx">
-      <DependentUpon>202304261931468_AddSubCommentEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304261937208_FixForeignKey.resx">
-      <DependentUpon>202304261937208_FixForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304271102120_AddForeignKeyUser.resx">
-      <DependentUpon>202304271102120_AddForeignKeyUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304271122289_AddForeignKeyUser2.resx">
-      <DependentUpon>202304271122289_AddForeignKeyUser2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304280257092_InitialDatabase2.resx">
+      <DependentUpon>202304280257092_InitialDatabase2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

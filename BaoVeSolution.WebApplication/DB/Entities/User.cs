@@ -32,15 +32,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Display(Name = "Có phải admin")]
         [Required]
         public bool IsAdmin { get; set; }
-        //[ForeignKey(nameof(Blog.Id))]
-        public ICollection<Blog> Blogs { get; set; }
-        //[ForeignKey(nameof(Category.Id))]
-        public ICollection<Category> Categories { get; set; }
-        //[ForeignKey(nameof(Comment.Id))]
-        public ICollection<Comment> Comments { get; set; }
-        //[ForeignKey(nameof(SubComment.Id))]
-        public ICollection<SubComment> SubComments { get; set; }
-
-
+        public int UserCreateId { get; set; }
+        public int UserUpdateId { get; set; }
     }
 }
