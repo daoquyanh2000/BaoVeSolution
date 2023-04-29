@@ -34,7 +34,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 if (user.State == State.Active)
                 {
                     Session["UserName"] = user.UserName;
-                    Session["UserID"] = user.Id;
+                    Session["UserId"] = user.Id;
                     Session["UserIsAdmin"] = user.IsAdmin;
                     Session["UserModel"] = user;
                     FormsAuthentication.SetAuthCookie(user.UserName, false);

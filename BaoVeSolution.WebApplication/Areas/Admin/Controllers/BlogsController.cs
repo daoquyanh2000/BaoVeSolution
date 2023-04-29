@@ -22,7 +22,12 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // GET: Admin/Blogs
         public ActionResult Index(int page = 1)
         {
-            var blogs = db.Blogs.OrderByDescending(x => x.Id).ToList().ToPagedList(page, pageSize);
+            var blogs = db.Blogs
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
+                .OrderByDescending(x => x.Id)
+                .ToList()
+                .ToPagedList(page, pageSize);
             var listParentCategory = db.Categories.ToList();
             Session["listParentCategory"] = listParentCategory;
             return View(blogs);
@@ -48,7 +53,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = db.Blogs
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
+                .SingleOrDefault(x => x.Id == id);
             var listParentCategory = db.Categories.ToList();
             Session["listParentCategory"] = listParentCategory;
             if (blog == null)
@@ -104,9 +112,8 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 if((bool)Session["UserIsAdmin"] == false)
                     blog.BlogState = BlogState.Pending;
 
-                blog.UserCreated = Session["UserName"].ToString();
+                blog.UserCreateId = (int)Session["UserId"];
                 blog.DateCreated = DateTime.Now;
-                blog.Guid = Guid.NewGuid();
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -175,8 +182,8 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                     blog.BlogState = BlogState.Pending;
 
                 blog.ImagePath = pathImage;
+                blog.UserUpdateId = (int)Session["UserId"];
                 blog.DateModified = DateTime.Now;
-                blog.UserModified = Session["UserName"].ToString();
                 db.Entry(blog).State = EntityState.Modified;
 
                 db.SaveChanges();
@@ -193,7 +200,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = db.Blogs
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
+                .SingleOrDefault(x => x.Id == id);
             var listParentCategory = db.Categories.ToList();
             Session["listParentCategory"] = listParentCategory;
             if (blog == null)

@@ -44,15 +44,15 @@ namespace Model.Migrations
             };
             context.Layouts.AddOrUpdate(layout);
             context.HomePages.AddOrUpdate(home);
+            context.SaveChanges();
             context.Categories.AddOrUpdate(
-                h => h.Id,
                 new Category
                 {
                     Id = 1,
                     Name = "Giới thiệu",
                     Slug = "gioi-thieu",
                     ParentId = 0,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -61,7 +61,7 @@ namespace Model.Migrations
                     Name = "Đối tác Đất Việt",
                     Slug = "doi-tac-dat-viet",
                     ParentId = 1,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -70,7 +70,7 @@ namespace Model.Migrations
                     Name = "Hồ sơ năng lực",
                     Slug = "ho-so-nang-luc",
                     ParentId = 1,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -79,7 +79,7 @@ namespace Model.Migrations
                     Name = "Danh bạ bảo vệ",
                     Slug = "danh-ba-bao-ve",
                     ParentId = 1,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -88,7 +88,7 @@ namespace Model.Migrations
                     Name = "Tin tức",
                     Slug = "tin-tuc",
                     ParentId = 0,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -97,7 +97,7 @@ namespace Model.Migrations
                     Name = "Tin Khánh Toàn",
                     Slug = "tin-khanh-toan",
                     ParentId = 5,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -106,7 +106,7 @@ namespace Model.Migrations
                     Name = "Tin tổng hợp",
                     Slug = "tin-tong-hop",
                     ParentId = 5,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -115,7 +115,7 @@ namespace Model.Migrations
                     Name = "Dịch vụ",
                     Slug = "dich-vu",
                     ParentId = 0,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -124,7 +124,7 @@ namespace Model.Migrations
                     Name = "Dịch vụ bảo vệ",
                     Slug = "dich-vu-bao-ve",
                     ParentId = 8,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -133,7 +133,7 @@ namespace Model.Migrations
                     Name = "Lắp đặt camera quan sát",
                     Slug = "lap-dat-camera-quan-sat",
                     ParentId = 8,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -142,7 +142,7 @@ namespace Model.Migrations
                     Name = "Lắp đặt bãi xe thông minh",
                     Slug = "lap-dat-bai-xe-thong-minh",
                     ParentId = 8,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -151,7 +151,7 @@ namespace Model.Migrations
                     Name = "Tuyển dụng bảo vệ",
                     Slug = "tuyen-dung-bao-ve",
                     ParentId = 13,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 },
                 new Category
@@ -160,7 +160,7 @@ namespace Model.Migrations
                     Name = "Tuyển dụng",
                     Slug = "tuyen-dung",
                     ParentId = 0,
-                    State = State.Active,
+                    CategoryState = CategoryState.Active, UserCreateId = 1,
                     Description = "Cập nhật các thông tin mới nhất về các sự kiện, chia sẻ trải nghiệm về chuyện nghề"
                 });
             context.SaveChanges();

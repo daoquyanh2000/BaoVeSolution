@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDatabase2 : DbMigration
+    public partial class _1 : DbMigration
     {
         public override void Up()
         {
@@ -12,18 +12,14 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Guid = c.Guid(nullable: false),
                         CategoryId = c.Int(nullable: false),
-                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateCreated = c.DateTime(precision: 7, storeType: "datetime2"),
+                        DateModified = c.DateTime(precision: 7, storeType: "datetime2"),
                         Title = c.String(nullable: false),
                         ImagePath = c.String(),
                         Description = c.String(nullable: false),
                         Content = c.String(nullable: false),
-                        UserCreated = c.String(),
-                        UserModified = c.String(),
                         BlogState = c.Int(nullable: false),
-                        State = c.Int(nullable: false),
                         UserCreateId = c.Int(),
                         UserUpdateId = c.Int(),
                     })
@@ -44,9 +40,11 @@
                         ParentId = c.Int(nullable: false),
                         Slug = c.String(),
                         Description = c.String(nullable: false),
-                        State = c.Int(nullable: false),
+                        CategoryState = c.Int(nullable: false),
                         UserCreateId = c.Int(),
                         UserUpdateId = c.Int(),
+                        DateCreated = c.DateTime(precision: 7, storeType: "datetime2"),
+                        DateModified = c.DateTime(precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.UserCreateId)

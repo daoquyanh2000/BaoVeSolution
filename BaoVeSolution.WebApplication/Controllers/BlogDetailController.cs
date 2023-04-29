@@ -1,5 +1,6 @@
 ﻿using BaoVeSolution.WebApplication.DB;
 using BaoVeSolution.WebApplication.DB.Entities;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Policy;
 using System.Web;
@@ -14,10 +15,13 @@ namespace BaoVeSolution.WebApplication.Controllers
         // GET: BlogDetails
         public ActionResult Index(int? id)
         {
-            var blog = db.Blogs.Find(id);
+            var blog = db.Blogs
+                        .Include(x => x.UserCreate)
+                        .Include(x => x.UserUpdate)
+                        .SingleOrDefault();
             if (blog == null)
                 return RedirectToAction("Index", "MainPage");
-            var categories = db.Categories.Where(x => x.State == DB.Base.State.Active).ToList();
+            var categories = db.Categories.Where(x => x.CategoryState == CategoryState.Active).ToList();
             ViewBag.categories = categories;
 
             var blogs = db.Blogs.OrderBy(x => x.DateCreated).Where(x => x.BlogState == BlogState.Active).ToList();

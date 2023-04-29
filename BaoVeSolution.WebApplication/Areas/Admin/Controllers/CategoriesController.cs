@@ -1,6 +1,7 @@
 ﻿using BaoVeSolution.WebApplication.DB;
 using BaoVeSolution.WebApplication.DB.Entities;
 using PagedList;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -23,13 +24,26 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         public ActionResult Index(int page = 1)
         {
             var categories = db.Categories.Where(x => x.ParentId != 0)
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
                 .OrderByDescending(x => x.Id)
                 .ToPagedList(page, pageSize);
             var listParentCategory = db.Categories.Where(x => x.ParentId == 0).ToList();
             Session["listParentCategory"] = listParentCategory;
             return View(categories);
         }
-
+        public ActionResult Approve(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Category category = db.Categories.Find(id);
+            category.CategoryState = CategoryState.Active;
+            db.Entry(category).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Admin/Categories/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,7 +51,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = db.Categories
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
+                .SingleOrDefault(x => x.Id == id);
             var listParentCategory = db.Categories.Where(x => x.ParentId == 0).ToList();
             Session["listParentCategory"] = listParentCategory;
             if (category == null)
@@ -67,15 +84,20 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ParentId,slug,Description,State")] Category category)
+        public ActionResult Create(Category category)
         {
             if (ModelState.IsValid)
             {
                 category.Slug = ToUrlSlug(category.Name);
 
+                if ((bool)Session["UserIsAdmin"] == false)
+                    category.CategoryState = CategoryState.Pending;
+
+                category.UserCreateId = (int)Session["UserId"];
+                category.DateCreated = DateTime.Now;
                 db.Categories.Add(category);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
             return View(category);
         }
@@ -108,11 +130,16 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ParentId,slug,Description,State")] Category category)
+        public ActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {
                 category.Slug = ToUrlSlug(category.Name);
+                if ((bool)Session["UserIsAdmin"] == false)
+                    category.CategoryState = CategoryState.Pending;
+
+                category.UserUpdateId = (int)Session["UserId"];
+                category.DateModified = DateTime.Now;
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,7 +154,10 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = db.Categories
+                .Include(x => x.UserCreate)
+                .Include(x => x.UserUpdate)
+                .SingleOrDefault(x => x.Id == id);
             var listParentCategory = db.Categories.Where(x => x.ParentId == 0).ToList();
             Session["listParentCategory"] = listParentCategory;
             if (category == null)

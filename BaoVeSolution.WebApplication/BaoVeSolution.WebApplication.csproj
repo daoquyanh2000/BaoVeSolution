@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Categories1Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomePagesController.cs" />
@@ -170,9 +171,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304280257092_InitialDatabase2.cs" />
-    <Compile Include="Migrations\202304280257092_InitialDatabase2.designer.cs">
-      <DependentUpon>202304280257092_InitialDatabase2.cs</DependentUpon>
+    <Compile Include="Migrations\202304281746225_1.cs" />
+    <Compile Include="Migrations\202304281746225_1.designer.cs">
+      <DependentUpon>202304281746225_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -501,6 +502,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Categories1\" />
     <Folder Include="Models\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
@@ -514,8 +516,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202304280257092_InitialDatabase2.resx">
-      <DependentUpon>202304280257092_InitialDatabase2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304281746225_1.resx">
+      <DependentUpon>202304281746225_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

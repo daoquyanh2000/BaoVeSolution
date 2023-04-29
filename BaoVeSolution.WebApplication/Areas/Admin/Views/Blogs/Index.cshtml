@@ -45,10 +45,10 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserCreated)
+                    Tên người tạo
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserModified)
+                    Tên người sửa
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.BlogState)
@@ -87,10 +87,10 @@
                         </p>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.UserCreated)
+                        @Html.DisplayFor(modelItem => item.UserCreate.UserName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.UserModified)
+                        @Html.DisplayFor(modelItem => item.UserUpdate.UserName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.BlogState)
@@ -105,8 +105,14 @@
                             </span>
                         }
                         @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) 
+                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
+                        {
+                            <span>
+                                |
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                            </span>
+                        }
                     </td>
                 </tr>
             }

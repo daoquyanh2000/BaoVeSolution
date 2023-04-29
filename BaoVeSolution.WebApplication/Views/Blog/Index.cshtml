@@ -28,12 +28,12 @@
                     <div class="position-relative mb-4">
                         <img class="img-fluid rounded " style="min-width:200px" src="@item.ImagePath" alt="">
                         <div class="blog-date">
-                            <h5 class="font-weight-bold text-white mb-n1">@item.DateCreated.Day</h5>
-                            <small class="text-white text-uppercase">Tháng @item.DateCreated.Month</small>
+                            <h5 class="font-weight-bold text-white mb-n1">@item.DateCreated.Value.Day</h5>
+                            <small class="text-white text-uppercase">Tháng @item.DateCreated.Value.Month</small>
                         </div>
                     </div>
                     <div class="d-flex mb-2">
-                        <a class="text-secondary text-uppercase font-weight-medium" href="">@item.UserCreated</a>
+                        <a class="text-secondary text-uppercase font-weight-medium" href="">@item.DateCreated</a>
                     </div>
                     <h5 class="font-weight-medium mb-2">@item.Title</h5>
                     <p class="mb-4 cut-text">@item.Description</p>

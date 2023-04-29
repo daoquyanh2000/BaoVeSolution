@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class Blog : BaseEntities
+    public class Blog 
     {
         [Key]
         public int Id { get; set; }
-        public Guid Guid { get; set; }
         [Required]
         [Display(Name = "Danh mục chứa")]
         public int CategoryId { get; set; }
@@ -18,11 +17,11 @@ namespace BaoVeSolution.WebApplication.DB.Entities
 
         [Column(TypeName = "datetime2")]
         [Display(Name = "Ngày tạo")]
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
 
         [Column(TypeName = "datetime2")]
         [Display(Name = "Ngày sửa")]
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
 
         [Required]
         [Display(Name = "Tên tin tức")]
@@ -39,14 +38,21 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Display(Name = "Nội dung")]
         public string Content { get; set; }
 
-        [Display(Name = "Người tạo")]
+/*        [Display(Name = "Người tạo")]
         public string UserCreated { get; set; }
 
         [Display(Name = "Người Sửa")]
-        public string UserModified { get; set; }
+        public string UserModified { get; set; }*/
         [Display(Name = "Trạng thái bài viết")]
 
         public BlogState BlogState { get; set; }
+        //user create and update
+        public int? UserCreateId { get; set; }
+        [ForeignKey(nameof(UserCreateId))]
+        public User UserCreate { get; set; }
+        public int? UserUpdateId { get; set; }
+        [ForeignKey(nameof(UserUpdateId))]
+        public User UserUpdate { get; set; }
     }
     public enum BlogState
     {

@@ -47,85 +47,7 @@
     </style>
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
-<style>
-    :root {
-        --offcavas-width: 250px;
-        --topNavbarHeight: 56px;
-    }
 
-    main {
-        margin-top: var(--topNavbarHeight);
-        font-size: 16px;
-        min-height: 624px;
-    }
-
-    .sidebar-nav {
-        width: var(--offcavas-width);
-    }
-
-    .icon-right {
-        transition: all ease .3s;
-    }
-
-    .sidebar-link[aria-expanded="false"] .icon-right {
-        transform: rotate(180deg);
-    }
-
-    .form-group {
-        padding: 6px 0px;
-    }
-
-    .footer-position {
-        margin-top: 70%;
-    }
-
-    input[type="file"] {
-        display: none;
-    }
-
-    .custom-file-upload {
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    @@media (max-width:1024) {
-    }
-
-    @@media (min-width:1023px) {
-        main,
-        footer {
-            margin-top: var(--topNavbarHeight);
-            margin-left: var(--offcavas-width);
-        }
-
-        main {
-            padding: 12px;
-        }
-        /* .modal-backdrop {
-        display: none !important;
-    } */
-
-        .sidebar-nav {
-            transform: none;
-            visibility: visible !important;
-            top: var(--topNavbarHeight);
-        }
-    }
-
-    label.error {
-        color: red;
-    }
-
-    th, td {
-        word-break: keep-all;
-        white-space: nowrap;
-        vertical-align: middle;
-    }
-
-    th {
-        text-align: center;
-    }
-</style>
 
 <body>
     <header>
@@ -152,7 +74,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark my-2">
                         <li>
-                            @Html.ActionLink("Thông tin tài khoản", "Details", "Users", new { id = Session["UserID"] }, new { @class = "dropdown-item py-2" })
+                            @Html.ActionLink("Thông tin tài khoản", "Details", "Users", new { id = Session["UserId"] }, new { @class = "dropdown-item py-2" })
                         </li>
                         <li>
                             <a href="/admin/login/logout" class="dropdown-item py-2">Đăng xuất</a>
@@ -260,3 +182,86 @@
 
 
 @RenderSection("scripts", required: false)
+
+<script type="text/javascript">
+    $(".make-pass").attr("type", "password");
+</script>
+<style>
+    :root {
+        --offcavas-width: 250px;
+        --topNavbarHeight: 56px;
+    }
+
+    main {
+        margin-top: var(--topNavbarHeight);
+        font-size: 16px;
+        min-height: 624px;
+    }
+
+    .sidebar-nav {
+        width: var(--offcavas-width);
+    }
+
+    .icon-right {
+        transition: all ease .3s;
+    }
+
+    .sidebar-link[aria-expanded="false"] .icon-right {
+        transform: rotate(180deg);
+    }
+
+    .form-group {
+        padding: 6px 0px;
+    }
+
+    .footer-position {
+        margin-top: 70%;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    @@media (max-width:1024) {
+    }
+
+    @@media (min-width:1023px) {
+        main,
+        footer {
+            margin-top: var(--topNavbarHeight);
+            margin-left: var(--offcavas-width);
+        }
+
+        main {
+            padding: 12px;
+        }
+        /* .modal-backdrop {
+        display: none !important;
+    } */
+
+        .sidebar-nav {
+            transform: none;
+            visibility: visible !important;
+            top: var(--topNavbarHeight);
+        }
+    }
+
+    label.error {
+        color: red;
+    }
+
+    th, td {
+        word-break: keep-all;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>

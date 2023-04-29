@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class Category : BaseEntities
+    public class Category 
     {
         [Key]
         public int Id { get; set; }
@@ -28,5 +28,34 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Display(Name = "Mô tả")]
         public string Description { get; set; }
         public ICollection<Blog> Blogs{ get; set; }
+        [Display(Name = "Trạng thái danh mục")]
+        public CategoryState CategoryState { get; set; }
+
+        //user create and update
+        public int? UserCreateId { get; set; }
+        [ForeignKey(nameof(UserCreateId))]
+        public User UserCreate { get; set; }
+        public int? UserUpdateId { get; set; }
+        [ForeignKey(nameof(UserUpdateId))]
+        public User UserUpdate { get; set; }
+
+        //date create and update
+        [Column(TypeName = "datetime2")]
+        [Display(Name = "Ngày tạo")]
+        public DateTime? DateCreated { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        [Display(Name = "Ngày sửa")]
+        public DateTime? DateModified { get; set; }
+    }
+    public enum CategoryState
+    {
+        [Display(Name = "Hạn chế")]
+        Inactive,
+        [Display(Name = "Đang chờ duyệt")]
+        Pending,
+
+        [Display(Name = "Đang hoạt động")]
+        Active
     }
 }
