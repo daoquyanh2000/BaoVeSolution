@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BaoVeSolution.WebApplication.DB
+﻿namespace BaoVeSolution.WebApplication.DB
 {
     public class StoreInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<BaoVeContext>
     {

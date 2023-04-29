@@ -3,11 +3,12 @@
 @using MvcSiteMapProvider.Web.Html.Models
 
 <ul class="siteMap">
-    @foreach (var node in Model.Nodes) { 
-        <li>@Html.DisplayFor(m => node) 
-            @if (node.Children.Any()) {
-                @Html.DisplayFor(m => node.Children)
+    @foreach (var node in Model.Nodes) {
+    <li>
+        @Html.DisplayFor(m => node)
+    @if (node.Children.Any()) {
+    @Html.DisplayFor(m => node.Children)
             }
-        </li>
+</li>
     }
 </ul>

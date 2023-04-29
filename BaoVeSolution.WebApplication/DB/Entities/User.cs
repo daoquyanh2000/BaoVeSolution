@@ -1,11 +1,9 @@
 ﻿using BaoVeSolution.WebApplication.DB.Base;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaoVeSolution.WebApplication.DB.Entities
 {
-    public class User 
+    public class User
     {
         [Key]
         public int Id { get; set; }
@@ -32,6 +30,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         [Display(Name = "Có phải admin")]
         [Required]
         public bool IsAdmin { get; set; }
+
         public int UserCreateId { get; set; }
         public int UserUpdateId { get; set; }
     }

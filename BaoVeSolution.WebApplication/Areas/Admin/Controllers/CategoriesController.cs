@@ -32,6 +32,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             Session["listParentCategory"] = listParentCategory;
             return View(categories);
         }
+
         public ActionResult Approve(int? id)
         {
             if (id == null)
@@ -44,6 +45,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         // GET: Admin/Categories/Details/5
         public ActionResult Details(int? id)
         {
@@ -97,7 +99,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                 category.DateCreated = DateTime.Now;
                 db.Categories.Add(category);
                 db.SaveChanges();
-                return RedirectToAction("Index"); 
+                return RedirectToAction("Index");
             }
             return View(category);
         }

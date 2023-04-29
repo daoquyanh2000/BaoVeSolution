@@ -1,7 +1,5 @@
 ﻿using BaoVeSolution.WebApplication.DB;
 using BaoVeSolution.WebApplication.DB.Entities;
-using Microsoft.Ajax.Utilities;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -18,6 +16,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
             var layout = db.Layouts.ToList().FirstOrDefault();
             return View(layout);
         }
+
         // GET: Admin/Layouts
         public ActionResult Index()
         {

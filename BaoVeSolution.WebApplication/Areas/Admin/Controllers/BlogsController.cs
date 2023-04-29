@@ -7,7 +7,6 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
@@ -109,7 +108,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
                     return RedirectToAction("Index", "Login");
                 }
 
-                if((bool)Session["UserIsAdmin"] == false)
+                if ((bool)Session["UserIsAdmin"] == false)
                     blog.BlogState = BlogState.Pending;
 
                 blog.UserCreateId = (int)Session["UserId"];

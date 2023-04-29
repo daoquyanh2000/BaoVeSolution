@@ -60,61 +60,61 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    @{
+            <tr>
+                @{
                         var listParentCategory = (List<BaoVeSolution.WebApplication.DB.Entities.Category>)Session["listParentCategory"];
                         var parrentCategory = listParentCategory.Where(x => x.Id == item.CategoryId).FirstOrDefault();
-                    }
-                    @if (parrentCategory != null)
+                }
+                @if (parrentCategory != null)
                     {
-                        <td>@parrentCategory.Name</td>
+                <td>@parrentCategory.Name</td>
                     }
                     else
                     {
-                        <td>Trống</td>
+                <td>Trống</td>
 
                     }
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        <img src="@item.ImagePath" style="width:100px;height:100px;object-fit:contain" alt="blog image" />
-                    </td>
-                    <td>
-                        <p class="cut-text">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <img src="@item.ImagePath" style="width:100px;height:100px;object-fit:contain" alt="blog image" />
+                </td>
+                <td>
+                    <p class="cut-text">
 
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </p>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserCreate.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserUpdate.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BlogState)
-                    </td>
-                    <td>
-                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true && item.BlogState == BlogState.Pending)
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserCreate.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserUpdate.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlogState)
+                </td>
+                <td>
+                    @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true && item.BlogState == BlogState.Pending)
                         {
 
-                            <span>
-                                @Html.ActionLink("Duyệt bài", "Approve", new { id = item.Id })
-                                |
-                            </span>
+                    <span>
+                        @Html.ActionLink("Duyệt bài", "Approve", new { id = item.Id })
+                        |
+                    </span>
                         }
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) 
-                        @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+                    @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
                         {
-                            <span>
-                                |
-                                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
-                            </span>
+                    <span>
+                        |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                    </span>
                         }
-                    </td>
-                </tr>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

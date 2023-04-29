@@ -44,7 +44,7 @@ namespace BaoVeSolution.WebApplication.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( User user)
+        public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
             {

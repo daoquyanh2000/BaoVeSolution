@@ -30,11 +30,11 @@
         }
         @if (parrentCategory != null)
         {
-            <dd>@parrentCategory.Name</dd>
+        <dd>@parrentCategory.Name</dd>
         }
         else
         {
-            <dd>Trống</dd>
+        <dd>Trống</dd>
         }
         <dt>
             @Html.DisplayNameFor(model => model.Slug)
@@ -91,15 +91,14 @@
         <dd>
             @Html.DisplayFor(model => model.CategoryState)
         </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-danger" /> |
-            @Html.ActionLink("Quay lại", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        @Html.ActionLink("Quay lại", "Index")
+    </div>
     }
 </div>

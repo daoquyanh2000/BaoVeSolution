@@ -20,60 +20,59 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Content)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Content)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.ParentId)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.ParentId)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Name)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Email)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Email)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.DateCreated)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.DateCreated)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.State)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.State)
             </dd>
-    
         </dl>
-    
+
         @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
         }
     </div>
 </body>

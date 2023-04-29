@@ -1,11 +1,8 @@
 ﻿using BaoVeSolution.WebApplication.DB;
-using BaoVeSolution.WebApplication.DB.Base;
 using BaoVeSolution.WebApplication.DB.Entities;
 using PagedList;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BaoVeSolution.WebApplication.Controllers

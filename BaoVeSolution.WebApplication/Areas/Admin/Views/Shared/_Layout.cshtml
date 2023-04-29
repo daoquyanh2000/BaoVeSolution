@@ -48,7 +48,6 @@
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 
-
 <body>
     <header>
         <!-- navbar start  -->
@@ -69,7 +68,7 @@
                         <i class="bi bi-person-circle"></i>
                         @if (Session["UserName"] != null)
                         {
-                            @Session["UserName"].ToString()
+                        @Session["UserName"].ToString()
                         }
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark my-2">
@@ -110,12 +109,12 @@
                                 <ul class="navbar-dark">
                                     @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
                                     {
-                                        <li class="navbar-nav">
-                                            <a href="/admin/users" class="nav-link">
-                                                <i class="bi bi-person-circle"></i>
-                                                Người dùng
-                                            </a>
-                                        </li>
+                                    <li class="navbar-nav">
+                                        <a href="/admin/users" class="nav-link">
+                                            <i class="bi bi-person-circle"></i>
+                                            Người dùng
+                                        </a>
+                                    </li>
                                     }
                                     <li class="navbar-nav">
                                         <a href="/admin/categories" class="nav-link">
@@ -134,33 +133,32 @@
                         </li>
                         @if (Session["UserIsAdmin"] != null && (bool)Session["UserIsAdmin"] == true)
                         {
-                            <li class="sidebar-item">
-                                <hr class="dropdown-divider">
-                            </li>
-                            <!-- sidebar item 2 end-->
-                            <!-- sidebar item 3 start-->
-                            <li class="sidebar-item">
-                                <a href="/admin/HomePages" class="nav-link">
-                                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                                    Chỉnh sửa trang chủ
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <hr class="dropdown-divider">
-                            </li>
-                            <!-- sidebar item 3 start-->
+                        <li class="sidebar-item">
+                            <hr class="dropdown-divider">
+                        </li>
+ <!-- sidebar item 2 end-->
+ <!-- sidebar item 3 start-->
+                        <li class="sidebar-item">
+                            <a href="/admin/HomePages" class="nav-link">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                Chỉnh sửa trang chủ
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <hr class="dropdown-divider">
+                        </li>
+ <!-- sidebar item 3 start-->
 
-                            <li class="sidebar-item">
-                                <a href="/admin/Layouts" class="nav-link">
-                                    <i class="fa-solid fa-wrench"></i>
-                                    Chỉnh sửa Layout
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <hr class="dropdown-divider">
-                            </li>
+                        <li class="sidebar-item">
+                            <a href="/admin/Layouts" class="nav-link">
+                                <i class="fa-solid fa-wrench"></i>
+                                Chỉnh sửa Layout
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <hr class="dropdown-divider">
+                        </li>
                         }
-
                     </ul>
                 </nav>
             </div>
@@ -177,9 +175,7 @@
         Html.RenderAction("Footer", "Layouts");
     }
 </body>
-
 </html>
-
 
 @RenderSection("scripts", required: false)
 

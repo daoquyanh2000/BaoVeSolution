@@ -4,8 +4,8 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
 	<mvcSiteMapNode title="Trang chủ" controller="MainPage" action="Index">
-		<mvcSiteMapNode title="Danh mục tin tức" controller="Blog" action="Index"  inheritedRouteParameters="id" preservedRouteParameters="id" >
-			<mvcSiteMapNode title="Tin tức" controller="BlogDetail" action="Index" preservedRouteParameters="id"  />
+		<mvcSiteMapNode title="Danh mục tin tức" controller="Blog" action="Index"  inheritedRouteParameters="id" preservedRouteParameters="id">
+			<mvcSiteMapNode title="Tin tức" controller="BlogDetail" action="Index" preservedRouteParameters="id" />
 		</mvcSiteMapNode>
 	</mvcSiteMapNode>
 </mvcSiteMap>

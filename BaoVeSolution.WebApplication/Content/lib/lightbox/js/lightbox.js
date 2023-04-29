@@ -27,7 +27,6 @@
         root.lightbox = factory(root.jQuery);
     }
 }(this, function ($) {
-
   function Lightbox(options) {
     this.album = [];
     this.currentImageIndex = void 0;
@@ -186,7 +185,6 @@
         });
       }
     });
-
 
     this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
       self.end();

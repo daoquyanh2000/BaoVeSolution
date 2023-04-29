@@ -37,7 +37,6 @@
       window.jQuery
     );
   }
-
 }( window, function factory( window, jQuery ) {
 'use strict';
 
@@ -131,7 +130,6 @@ function jQueryBridget( namespace, PluginClass, $ ) {
   }
 
   updateJQuery( $ );
-
 }
 
 // ----- updateJQuery ----- //
@@ -149,7 +147,6 @@ updateJQuery( jQuery || window.jQuery );
 // -----  ----- //
 
 return jQueryBridget;
-
 }));
 
 /**
@@ -173,11 +170,7 @@ return jQueryBridget;
     // Browser globals
     global.EvEmitter = factory();
   }
-
 }( typeof window != 'undefined' ? window : this, function() {
-
-
-
 function EvEmitter() {}
 
 var proto = EvEmitter.prototype;
@@ -262,7 +255,6 @@ proto.allOff = function() {
 };
 
 return EvEmitter;
-
 }));
 
 /*!
@@ -289,7 +281,6 @@ return EvEmitter;
     // browser global
     window.getSize = factory();
   }
-
 })( window, function factory() {
 'use strict';
 
@@ -398,7 +389,6 @@ function setup() {
 
   getSize.isBoxSizeOuter = isBoxSizeOuter = getStyleSize( style.width ) == 200;
   body.removeChild( div );
-
 }
 
 // -------------------------- getSize -------------------------- //
@@ -472,7 +462,6 @@ function getSize( elem ) {
 }
 
 return getSize;
-
 });
 
 /**
@@ -497,7 +486,6 @@ return getSize;
     // browser global
     window.matchesSelector = factory();
   }
-
 }( window, function factory() {
   'use strict';
 
@@ -526,7 +514,6 @@ return getSize;
   return function matchesSelector( elem, selector ) {
     return elem[ matchesMethod ]( selector );
   };
-
 }));
 
 /**
@@ -560,11 +547,7 @@ return getSize;
       window.matchesSelector
     );
   }
-
 }( window, function factory( window, matchesSelector ) {
-
-
-
 var utils = {};
 
 // ----- extend ----- //
@@ -758,14 +741,12 @@ utils.htmlInit = function( WidgetClass, namespace ) {
         jQuery.data( elem, namespace, instance );
       }
     });
-
   });
 };
 
 // -----  ----- //
 
 return utils;
-
 }));
 
 /**
@@ -797,7 +778,6 @@ return utils;
       window.getSize
     );
   }
-
 }( window, function factory( EvEmitter, getSize ) {
 'use strict';
 
@@ -812,7 +792,6 @@ function isEmptyObj( obj ) {
 }
 
 // -------------------------- CSS3 support -------------------------- //
-
 
 var docElemStyle = document.documentElement.style;
 
@@ -1082,7 +1061,6 @@ proto.transition = function( args ) {
   this.css( args.to );
 
   this.isTransitioning = true;
-
 };
 
 // dash before all cap letters, including first for
@@ -1319,7 +1297,6 @@ proto.destroy = function() {
 };
 
 return Item;
-
 }));
 
 /*!
@@ -1363,7 +1340,6 @@ return Item;
       window.Outlayer.Item
     );
   }
-
 }( window, function factory( window, EvEmitter, getSize, utils, Item ) {
 'use strict';
 
@@ -1379,7 +1355,6 @@ var noop = function() {};
 var GUID = 0;
 // internal store of all Outlayer intances
 var instances = {};
-
 
 /**
  * @param {Element, String} element
@@ -1499,14 +1474,12 @@ proto.reloadItems = function() {
   this.items = this._itemize( this.element.children );
 };
 
-
 /**
  * turn elements into Outlayer.Items to be used in layout
  * @param {Array or NodeList or HTMLElement} elems
  * @returns {Array} items - collection of new Outlayer Items
  */
 proto._itemize = function( elems ) {
-
   var itemElems = this._filterFindItemElements( elems );
   var Item = this.constructor.Item;
 
@@ -1568,7 +1541,6 @@ proto._init = proto.layout;
 proto._resetLayout = function() {
   this.getSize();
 };
-
 
 proto.getSize = function() {
   this.size = getSize( this.element );
@@ -1814,7 +1786,6 @@ proto.dispatchEvent = function( type, event, args ) {
 };
 
 // -------------------------- ignore & stamps -------------------------- //
-
 
 /**
  * keep item in collection, but do not lay it out
@@ -2165,7 +2136,6 @@ proto.destroy = function() {
   if ( jQuery ) {
     jQuery.removeData( this.element, this.constructor.namespace );
   }
-
 };
 
 // -------------------------- data -------------------------- //
@@ -2180,7 +2150,6 @@ Outlayer.data = function( elem ) {
   var id = elem && elem.outlayerGUID;
   return id && instances[ id ];
 };
-
 
 // -------------------------- create Outlayer class -------------------------- //
 
@@ -2259,7 +2228,6 @@ function getMilliseconds( time ) {
 Outlayer.Item = Item;
 
 return Outlayer;
-
 }));
 
 /**
@@ -2287,7 +2255,6 @@ return Outlayer;
       window.Outlayer
     );
   }
-
 }( window, function factory( Outlayer ) {
 'use strict';
 
@@ -2337,7 +2304,6 @@ proto.destroy = function() {
 };
 
 return Item;
-
 }));
 
 /**
@@ -2368,7 +2334,6 @@ return Item;
       window.Outlayer
     );
   }
-
 }( window, function factory( getSize, Outlayer ) {
   'use strict';
 
@@ -2474,7 +2439,6 @@ return Item;
   LayoutMode.modes = {};
 
   LayoutMode.create = function( namespace, options ) {
-
     function Mode() {
       LayoutMode.apply( this, arguments );
     }
@@ -2495,7 +2459,6 @@ return Item;
   };
 
   return LayoutMode;
-
 }));
 
 /*!
@@ -2529,11 +2492,7 @@ return Item;
       window.getSize
     );
   }
-
 }( window, function factory( Outlayer, getSize ) {
-
-
-
 // -------------------------- masonryDefinition -------------------------- //
 
   // create an Outlayer layout class
@@ -2735,7 +2694,6 @@ return Item;
   };
 
   return Masonry;
-
 }));
 
 /*!
@@ -2767,7 +2725,6 @@ return Item;
       window.Masonry
     );
   }
-
 }( window, function factory( LayoutMode, Masonry ) {
 'use strict';
 
@@ -2810,7 +2767,6 @@ return Item;
   };
 
   return MasonryMode;
-
 }));
 
 /**
@@ -2837,7 +2793,6 @@ return Item;
       window.Isotope.LayoutMode
     );
   }
-
 }( window, function factory( LayoutMode ) {
 'use strict';
 
@@ -2879,7 +2834,6 @@ proto._getContainerSize = function() {
 };
 
 return FitRows;
-
 }));
 
 /**
@@ -2906,7 +2860,6 @@ return FitRows;
       window.Isotope.LayoutMode
     );
   }
-
 }( window, function factory( LayoutMode ) {
 'use strict';
 
@@ -2934,7 +2887,6 @@ proto._getContainerSize = function() {
 };
 
 return Vertical;
-
 }));
 
 /*!
@@ -2994,12 +2946,8 @@ return Vertical;
       window.Isotope.LayoutMode
     );
   }
-
 }( window, function factory( window, Outlayer, getSize, matchesSelector, utils,
   Item, LayoutMode ) {
-
-
-
 // -------------------------- vars -------------------------- //
 
 var jQuery = window.jQuery;
@@ -3066,7 +3014,6 @@ var trim = String.prototype.trim ?
     return items;
   };
 
-
   // -------------------------- layout -------------------------- //
 
   proto._initLayoutMode = function( name ) {
@@ -3079,7 +3026,6 @@ var trim = String.prototype.trim ?
     // init layout mode instance
     this.modes[ name ] = new Mode( this );
   };
-
 
   proto.layout = function() {
     // if first time doing layout, do all magic
@@ -3556,6 +3502,4 @@ var trim = String.prototype.trim ?
   // -----  ----- //
 
   return Isotope;
-
 }));
-

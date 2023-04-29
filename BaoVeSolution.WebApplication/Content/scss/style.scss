@@ -17,7 +17,6 @@ $border-radius: 5px;
 
 @import "bootstrap/scss/bootstrap";
 
-
 /********** Custom CSS ************/
 h1,
 .font-weight-bolder {
@@ -56,7 +55,7 @@ h6,
     padding-left: 0;
     padding-right: 0;
     text-align: center;
-    border-radius:45px;
+    border-radius: 45px;
 }
 
 .icon-box {
@@ -115,7 +114,7 @@ h6,
 }
 
 @media (max-width: 991.98px) {
-    .navbar-light .navbar-nav .nav-link  {
+    .navbar-light .navbar-nav .nav-link {
         padding: 5px 0;
     }
 }

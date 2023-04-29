@@ -17,7 +17,6 @@
 		factory(jQuery);
 	}
 })(function($){
-
 // Preserve the original jQuery "swing" easing as "jswing"
 if (typeof $.easing !== 'undefined') {
 	$.easing['jswing'] = $.easing['swing'];
@@ -164,5 +163,4 @@ $.extend( $.easing,
 			( 1 + bounceOut( 2 * x - 1 ) ) / 2;
 	}
 });
-
 });

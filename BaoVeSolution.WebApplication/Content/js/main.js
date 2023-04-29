@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -17,8 +17,7 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -32,13 +31,11 @@
         return false;
     });
 
-
     // Counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
-
 
     // Modal Video
     $(document).ready(function () {
@@ -56,7 +53,6 @@
             $("#video").attr('src', $videoSrc);
         })
     });
-
 
     // Service carousel
     $(".service-carousel").owlCarousel({
@@ -86,7 +82,6 @@
         }
     });
 
-
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
@@ -99,7 +94,6 @@
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
-
 
     // Team carousel
     $(".team-carousel").owlCarousel({
@@ -129,7 +123,6 @@
         }
     });
 
-
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
@@ -137,6 +130,4 @@
         items: 1,
         loop: true,
     });
-    
 })(jQuery);
-
