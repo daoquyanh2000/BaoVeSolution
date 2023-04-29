@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -58,6 +59,7 @@ namespace BaoVeSolution.WebApplication.DB.Entities
 
         [ForeignKey(nameof(UserUpdateId))]
         public User UserUpdate { get; set; }
+        public ICollection<Comment> Comment { get; set; }
     }
 
     public enum BlogState
