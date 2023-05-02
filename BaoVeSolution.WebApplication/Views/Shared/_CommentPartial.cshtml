@@ -1,0 +1,100 @@
+﻿@model List<BaoVeSolution.WebApplication.DB.Entities.Comment>
+
+<div class="bg-light rounded my-3 p-2">
+    <h3 class="mb-4 section-title">Thêm bình luận</h3>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="name">Họ tên *</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message">Nội dung *</label>
+            <textarea id="message" cols="30" rows="5" class="form-control" required></textarea>
+        </div>
+        <div class="form-group mb-0">
+            <input type="submit" value="Gửi" class="btn btn-primary" id="addNewCommentBtn">
+        </div>
+    </form>
+</div>
+
+@if (Model != null)
+{
+    <h3 class="mb-4 section-title">@Model.Count Bình luận</h3>
+    @RenderComment(Model.Where(x => x.ParentId == 0).ToList())
+}
+
+<script>
+        function addNewComment(data) {
+            return $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddNewComment", "Comments")',
+                data: data,
+                dataType: 'json',
+                contentType: 'application/json;charset=utf-8'
+            });
+        }
+        $("#addNewCommentBtn").click(function (e) {
+        e.preventDefault();
+        var data = JSON.stringify({
+            Content: $("#message").val() || "",
+            Name: $("#name").val() || "",
+            Email: $("#email").val() || "",
+            BlogId: @ViewBag.blogId,
+            parentId: 0,
+        });
+        addNewComment(data)
+            .then(res => {
+                $.toast({
+                    heading: res.heading,
+                    icon: res.icon,
+                    text: res.message,
+                    position: 'top-right',
+                    stack: 10,
+                    hideAfter: 5000,
+                    showHideTransition: 'slide',
+                })
+                if (res.status == true) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            });
+        });
+        $(document).on("click", ".reply-link", function (e) {
+            e.preventDefault();
+            alert('reply')
+        });
+</script>
+
+@helper RenderComment(List<BaoVeSolution.WebApplication.DB.Entities.Comment> comments, bool isRoot = true)
+{
+    var myClass = "mb-4";
+    if (isRoot == false)
+    {
+        myClass = "mt-4";
+    }
+    foreach (var comment in comments)
+    {
+        <div class="media @myClass">
+            <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
+            <div class="media-body">
+                <h6>@comment.Name <small><i>@comment.DateCreated.Value.ToString("dd-MM-yyyy") vào @comment.DateCreated.Value.ToString("HH:mm")</i></small></h6>
+                <p>@comment.Content</p>
+                <button class="btn btn-sm btn-light reply-link">Reply</button>
+                @{
+                    var children = Model.Where(x => x.ParentId == comment.Id).ToList();
+                    if (children.Count() > 0)
+                    {
+                        @RenderComment(children, false);
+                    }
+                }
+            </div>
+        </div>
+    }
+}

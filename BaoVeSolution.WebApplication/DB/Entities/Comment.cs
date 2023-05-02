@@ -17,9 +17,10 @@ namespace BaoVeSolution.WebApplication.DB.Entities
         public string Email { get; set; }
         [Column(TypeName = "datetime2")]
         public DateTime? DateCreated { get; set; }
-        public ICollection<SubComment> SubComments { get; set; }
         public int BlogId { get; set; }
         [ForeignKey("BlogId")]
         public Blog Blog { get; set; }
+
+        public int ParentId { get; set; }
     }
 }

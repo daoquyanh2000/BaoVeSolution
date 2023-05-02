@@ -179,6 +179,18 @@
     <Compile Include="Migrations\202304291848206_2.designer.cs">
       <DependentUpon>202304291848206_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305021316373_UpdateComment.cs" />
+    <Compile Include="Migrations\202305021316373_UpdateComment.designer.cs">
+      <DependentUpon>202305021316373_UpdateComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021343090_UpdateComment1.cs" />
+    <Compile Include="Migrations\202305021343090_UpdateComment1.designer.cs">
+      <DependentUpon>202305021343090_UpdateComment1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021345444_UpdateComment2.cs" />
+    <Compile Include="Migrations\202305021345444_UpdateComment2.designer.cs">
+      <DependentUpon>202305021345444_UpdateComment2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -497,19 +509,13 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <Content Include="Views\Comments\Create.cshtml" />
-    <Content Include="Views\Comments\Delete.cshtml" />
-    <Content Include="Views\Comments\Details.cshtml" />
-    <Content Include="Views\Comments\Edit.cshtml" />
-    <Content Include="Views\Comments\Index.cshtml" />
-    <Content Include="Views\Shared\_MyComments.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Categories1\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -526,6 +532,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304291848206_2.resx">
       <DependentUpon>202304291848206_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021316373_UpdateComment.resx">
+      <DependentUpon>202305021316373_UpdateComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021343090_UpdateComment1.resx">
+      <DependentUpon>202305021343090_UpdateComment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021345444_UpdateComment2.resx">
+      <DependentUpon>202305021345444_UpdateComment2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,12 +23,12 @@
                     <div class="d-flex mb-2">
                         @if (string.IsNullOrEmpty(Model.UserUpdate.UserName))
                         {
-                        <a class="text-secondary text-uppercase font-weight-medium">@Model.UserCreate.UserName</a>
+                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserCreate.UserName</a>
 
                         }
                         else
                         {
-                        <a class="text-secondary text-uppercase font-weight-medium">@Model.UserUpdate.UserName</a>
+                            <a class="text-secondary text-uppercase font-weight-medium">@Model.UserUpdate.UserName</a>
 
                         }
                         <span class="text-primary px-2">|</span>@{
@@ -45,123 +45,70 @@
                     @Html.Raw(@Model.Content)
                 </div>
                 <div class="mb-5">
-                    <h3 class="mb-4 section-title">3 Comments</h3>
-                    <div class="media mb-4">
-                        <img src="Content/img/user.jpg" alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum clita, at tempor amet ipsum diam tempor sit.</p>
-                            <button class="btn btn-sm btn-light">Reply</button>
-                        </div>
+                    @Html.Action("CommentPartial", "Comments", new { blogId = Model.Id })
+                </div>
+            </div>
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="mb-5">
+                        <h3 class="mb-4 section-title">Danh mục tin tức</h3>
+                        <ul class="list-inline m-0">
+                            @foreach (var category in categories.Where(x => x.ParentId == 0))
+                            {
+                                <li class="mb-1 py-2 px-3 bg-light d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="~/blog/index/@category.Id"><i class="fa fa-angle-right text-secondary mr-2"></i>@category.Name</a>
+                                    @{
+                                        var childCategories = categories.Where(x => x.ParentId == category.Id).ToList();
+                                        int count = 0;
+                                        foreach (var c in childCategories)
+                                        {
+                                            count += blogs.Where(x => x.CategoryId == c.Id).Count();
+                                        }
+                                        <span class="badge badge-primary badge-pill">@count</span>
+
+                                    }
+                                </li>
+                            }
+                        </ul>
                     </div>
-                    <div class="media mb-4">
-                        <img src="Content/img/user.jpg" alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum clita, at tempor amet ipsum diam tempor sit.</p>
-                            <button class="btn btn-sm btn-light">Reply</button>
-                            <div class="media mt-4">
-                                <img src="Content/img/user.jpg" alt="Image" class="img-fluid rounded-circle mr-3 mt-1"
-                                     style="width: 45px;">
-                                <div class="media-body">
-                                    <h6>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum clita, at tempor amet ipsum diam tempor sit.</p>
-                                    <button class="btn btn-sm btn-light">Reply</button>
+                    <div class="mb-5">
+                        <img src="~/Content/img/blog-1.jpg" alt="" class="img-fluid rounded">
+                    </div>
+                    <div class="mb-5">
+                        <h3 class="mb-4 section-title">Tin tức mới nhất</h3>
+                        @foreach (var blog in blogs.ToList().OrderBy(x => x.DateModified).Take(5))
+                        {
+                            <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                                <img class="img-fluid rounded" src="@blog.ImagePath" style="width: 80px; height: 80px; object-fit: cover;" alt="">
+                                <div class="d-flex flex-column pl-3">
+                                    <a class="text-dark mb-2" href="~/BlogDetail/Index/@blog.Id">@blog.Title</a>
+                                    <div class="d-flex">
+                                        @if (string.IsNullOrEmpty(blog.UserUpdate.UserName))
+                                        {
+                                            <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserCreate.UserName</a></small>
+
+                                        }
+                                        else
+                                        {
+                                            <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserUpdate.UserName</a></small>
+
+                                        }
+                                        <small class="text-primary px-2">|</small>
+                                        <small><a class="text-secondary text-uppercase font-weight-medium" href="~/blog/Index/@blog.CategoryId">@categories.Where(x => x.Id == blog.CategoryId).FirstOrDefault().Name</a></small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-light rounded p-5">
-                    <h3 class="mb-4 section-title">Leave a comment</h3>
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-sm-6">
-                                <label for="name">Name *</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="email">Email *</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Website</label>
-                            <input type="url" class="form-control" id="website">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group mb-0">
-                            <input type="submit" value="Leave Comment" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mt-5 mt-lg-0">
-                <div class="mb-5">
-                    <h3 class="mb-4 section-title">Danh mục tin tức</h3>
-                    <ul class="list-inline m-0">
-                        @foreach (var category in categories.Where(x => x.ParentId == 0))
-                        {
-                        <li class="mb-1 py-2 px-3 bg-light d-flex justify-content-between align-items-center">
-                            <a class="text-dark" href="~/blog/index/@category.Id"><i class="fa fa-angle-right text-secondary mr-2"></i>@category.Name</a>
-                            @{
-                                    var childCategories = categories.Where(x => x.ParentId == category.Id).ToList();
-                                    int count = 0;
-                                    foreach (var c in childCategories)
-                                    {
-                                        count += blogs.Where(x => x.CategoryId == c.Id).Count();
-                                    }
-                                <span class="badge badge-primary badge-pill">@count</span>
-
-                            }
-                        </li>
                         }
-                    </ul>
-                </div>
-                <div class="mb-5">
-                    <img src="~/Content/img/blog-1.jpg" alt="" class="img-fluid rounded">
-                </div>
-                <div class="mb-5">
-                    <h3 class="mb-4 section-title">Tin tức mới nhất</h3>
-                    @foreach (var blog in blogs.ToList().OrderBy(x => x.DateModified).Take(5))
-                    {
-                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
-                        <img class="img-fluid rounded" src="@blog.ImagePath" style="width: 80px; height: 80px; object-fit: cover;" alt="">
-                        <div class="d-flex flex-column pl-3">
-                            <a class="text-dark mb-2" href="~/BlogDetail/Index/@blog.Id">@blog.Title</a>
-                            <div class="d-flex">
-                                @if (string.IsNullOrEmpty(blog.UserUpdate.UserName))
-                                    {
-                                <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserCreate.UserName</a></small>
-
-                                    }
-                                    else
-                                    {
-                                <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserUpdate.UserName</a></small>
-
-                                    }
-                                <small class="text-primary px-2">|</small>
-                                <small><a class="text-secondary text-uppercase font-weight-medium" href="~/blog/Index/@blog.CategoryId">@categories.Where(x => x.Id == blog.CategoryId).FirstOrDefault().Name</a></small>
-                            </div>
-                        </div>
                     </div>
-                    }
-                </div>
-                <div class="mb-5">
-                    <img src="~/Content/img/blog-2.jpg" alt="" class="img-fluid rounded">
-                </div>
+                    <div class="mb-5">
+                        <img src="~/Content/img/blog-2.jpg" alt="" class="img-fluid rounded">
+                    </div>
 
-                <div>
-                    <h3 class="mb-4 section-title">Cung cấp dịch vụ bảo vệ chất lượng nhất</h3>
-                    Để xây dựng dịch vụ bảo vệ chất lượng cao. @applicationName không ngừng đổi mới. Chúng tôi luôn tuân thủ pháp luật, duy trì các tiêu chuẩn đạo đức trong kinh doanh. Với đội ngũ chuyên gia an ninh giàu kinh nghiệm trong ngành bảo vệ được trang bị công cụ hỗ trợ chuyên dụng hiện đại. Cùng với giải pháp kiểm soát chất lượng dịch vụ qua hệ thống camera quan sát được lắp đặt miễn phí tại các mục tiêu bảo vệ. @applicationName luôn đem đến cho khách hàng một chất lượng dịch vụ hoàn hảo, đảm bảo an toàn tài sản cho Quý khách hàng.
+                    <div>
+                        <h3 class="mb-4 section-title">Cung cấp dịch vụ bảo vệ chất lượng nhất</h3>
+                        Để xây dựng dịch vụ bảo vệ chất lượng cao. @applicationName không ngừng đổi mới. Chúng tôi luôn tuân thủ pháp luật, duy trì các tiêu chuẩn đạo đức trong kinh doanh. Với đội ngũ chuyên gia an ninh giàu kinh nghiệm trong ngành bảo vệ được trang bị công cụ hỗ trợ chuyên dụng hiện đại. Cùng với giải pháp kiểm soát chất lượng dịch vụ qua hệ thống camera quan sát được lắp đặt miễn phí tại các mục tiêu bảo vệ. @applicationName luôn đem đến cho khách hàng một chất lượng dịch vụ hoàn hảo, đảm bảo an toàn tài sản cho Quý khách hàng.
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 <!-- Detail End -->
