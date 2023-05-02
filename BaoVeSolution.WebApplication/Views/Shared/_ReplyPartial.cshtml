@@ -1,0 +1,27 @@
+﻿@{ 
+    int commentId = ViewBag.commentId;
+}
+<div class="reply-partial">
+    <div class="bg-light rounded my-3 p-2">
+        <h3 class="mb-4 section-title">Thêm bình luận</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="name"><strong>Họ tên <span style="color:red">*</span></strong></label>
+                    <input type="text" class="form-control" id="name-@commentId" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="name"><strong>Email <span style="color:red">*</span></strong></label>
+                    <input type="email" class="form-control" id="email-@commentId" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name"><strong>Nội dung <span style="color:red">*</span></strong></label>
+                <textarea id="message-@commentId" cols="30" rows="2" class="form-control" required></textarea>
+            </div>
+            <div class="form-group mb-0">
+                <input type="submit" value="Gửi" class="btn btn-primary addNewCommentBtn font-weight-bolder" data-comment-id="@commentId">
+            </div>
+        </form>
+    </div>
+</div>

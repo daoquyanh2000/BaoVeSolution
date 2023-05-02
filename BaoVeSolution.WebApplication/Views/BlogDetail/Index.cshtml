@@ -21,7 +21,7 @@
             <div class="col-lg-8">
                 <div class="mb-5">
                     <div class="d-flex mb-2">
-                        @if (string.IsNullOrEmpty(Model.UserUpdate.UserName))
+                        @if (string.IsNullOrEmpty(Model.UserUpdate?.UserName))
                         {
                             <a class="text-secondary text-uppercase font-weight-medium">@Model.UserCreate.UserName</a>
 
@@ -82,7 +82,7 @@
                                 <div class="d-flex flex-column pl-3">
                                     <a class="text-dark mb-2" href="~/BlogDetail/Index/@blog.Id">@blog.Title</a>
                                     <div class="d-flex">
-                                        @if (string.IsNullOrEmpty(blog.UserUpdate.UserName))
+                                        @if (string.IsNullOrEmpty(blog.UserUpdate?.UserName))
                                         {
                                             <small><a class="text-secondary text-uppercase font-weight-medium" href="">@blog.UserCreate.UserName</a></small>
 

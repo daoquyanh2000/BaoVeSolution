@@ -5,20 +5,20 @@
     <form>
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="name">Họ tên *</label>
+                <label for="name"><strong>Họ tên <span style="color:red">*</span></strong></label>
                 <input type="text" class="form-control" id="name" required>
             </div>
             <div class="form-group col-sm-6">
-                <label for="email">Email *</label>
+                <label for="name"><strong>Email <span style="color:red">*</span></strong></label>
                 <input type="email" class="form-control" id="email" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="message">Nội dung *</label>
-            <textarea id="message" cols="30" rows="5" class="form-control" required></textarea>
+            <label for="name"><strong>Nội dung <span style="color:red">*</span></strong></label>
+            <textarea id="message" cols="30" rows="3" class="form-control" required></textarea>
         </div>
         <div class="form-group mb-0">
-            <input type="submit" value="Gửi" class="btn btn-primary" id="addNewCommentBtn">
+            <input type="submit" value="Gửi" class="btn btn-primary addNewCommentBtn font-weight-bolder" data-comment-id="0">
         </div>
     </form>
 </div>
@@ -30,24 +30,59 @@
 }
 
 <script>
-        function addNewComment(data) {
-            return $.ajax({
-                type: "POST",
-                url: '@Url.Action("AddNewComment", "Comments")',
-                data: data,
-                dataType: 'json',
-                contentType: 'application/json;charset=utf-8'
-            });
-        }
-        $("#addNewCommentBtn").click(function (e) {
+    AddEventListener();
+    $(document).on("click", ".reply-link", function (e) {
         e.preventDefault();
-        var data = JSON.stringify({
-            Content: $("#message").val() || "",
-            Name: $("#name").val() || "",
-            Email: $("#email").val() || "",
-            BlogId: @ViewBag.blogId,
-            parentId: 0,
+        $(".reply-partial").remove();
+        let commentId = $(this).data("comment-id");
+        GetReplyPartial(commentId).then(res => {
+            $(this).after(res);
+            AddEventListener(commentId);
+        })
+    });
+
+/*    thêm comment mới*/
+    function addNewComment(data) {
+        return $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddNewComment", "Comments")',
+            data: data,
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8'
         });
+    }
+/*    thêm trả lời comment*/
+    function GetReplyPartial(commentId) {
+        return $.ajax({
+            type: "GET",
+            url: '@Url.Action("ReplyPartial", "Comments")',
+            data: {
+                commentId: commentId
+            },
+         });
+    }
+/*    thêm sự kiện nút comment*/
+    function AddEventListener(commentId = 0) {
+        $(".addNewCommentBtn").click(function (e) {
+        e.preventDefault();
+            let data = {};
+            if (commentId == 0) {
+                data = JSON.stringify({
+                    Content: $("#message").val() || "",
+                    Name: $("#name").val() || "",
+                    Email: $("#email").val() || "",
+                    BlogId: @ViewBag.blogId,
+                    parentId: $(this).data("comment-id"),
+                });
+            } else {
+                data = JSON.stringify({
+                    Content: $(`#message-${commentId}`).val(),
+                    Name: $(`#name-${commentId}`).val(),
+                    Email: $(`#email-${commentId}`).val(),
+                    BlogId: @ViewBag.blogId,
+                    parentId: $(this).data("comment-id"),
+                });
+            }
         addNewComment(data)
             .then(res => {
                 $.toast({
@@ -66,10 +101,7 @@
                 }
             });
         });
-        $(document).on("click", ".reply-link", function (e) {
-            e.preventDefault();
-            alert('reply')
-        });
+    }
 </script>
 
 @helper RenderComment(List<BaoVeSolution.WebApplication.DB.Entities.Comment> comments, bool isRoot = true)
@@ -82,11 +114,18 @@
     foreach (var comment in comments)
     {
         <div class="media @myClass">
-            <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
+            <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"  alt="Image" class="img-fluid rounded-circle mr-3 mt-1" style="width: 45px;">
             <div class="media-body">
-                <h6>@comment.Name <small><i>@comment.DateCreated.Value.ToString("dd-MM-yyyy") vào @comment.DateCreated.Value.ToString("HH:mm")</i></small></h6>
+@*                <div class="float-right">
+                    Xóa
+                </div>*@
+
+                <h6>
+                    <strong>@comment.Name</strong>
+                    <small><i>@comment.DateCreated.Value.ToString("dd-MM-yyyy") vào @comment.DateCreated.Value.ToString("HH:mm")</i></small>
+                </h6>
                 <p>@comment.Content</p>
-                <button class="btn btn-sm btn-light reply-link">Reply</button>
+                <button class="btn btn-sm btn-light reply-link" data-comment-id="@comment.Id">Trả lời</button>
                 @{
                     var children = Model.Where(x => x.ParentId == comment.Id).ToList();
                     if (children.Count() > 0)

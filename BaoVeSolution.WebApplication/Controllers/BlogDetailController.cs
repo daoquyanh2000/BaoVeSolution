@@ -16,7 +16,7 @@ namespace BaoVeSolution.WebApplication.Controllers
             var blog = db.Blogs
                         .Include(x => x.UserCreate)
                         .Include(x => x.UserUpdate)
-                        .SingleOrDefault();
+                        .SingleOrDefault(x => x.Id == id);
             if (blog == null)
                 return RedirectToAction("Index", "MainPage");
             var categories = db.Categories.Where(x => x.CategoryState == CategoryState.Active).ToList();

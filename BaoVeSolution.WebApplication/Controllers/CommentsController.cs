@@ -4,6 +4,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace BaoVeSolution.WebApplication.Controllers
 {
@@ -21,6 +22,7 @@ namespace BaoVeSolution.WebApplication.Controllers
             ViewBag.blogId = blogId;
             return PartialView("~/Views/Shared/_CommentPartial.cshtml", comments);
         }
+        [HttpPost]
         public ActionResult AddNewComment(Comment comment)
         {
             var message = string.Join(" | ", ModelState.Values
@@ -76,6 +78,14 @@ namespace BaoVeSolution.WebApplication.Controllers
                 return false;
             }
         }
+
+        [HttpGet]
+        public ActionResult ReplyPartial(int commentId)
+        {
+            ViewBag.commentId = commentId;
+            return PartialView("~/Views/Shared/_ReplyPartial.cshtml", commentId);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
