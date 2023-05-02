@@ -1,4 +1,6 @@
 ﻿using BaoVeSolution.WebApplication.DB;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace BaoVeSolution.WebApplication.Controllers
@@ -8,9 +10,10 @@ namespace BaoVeSolution.WebApplication.Controllers
         private BaoVeContext db = new BaoVeContext();
 
         [HttpGet]
-        public PartialViewResult GetSubComments(int ComID)
+        public PartialViewResult GetComments(int blogId)
         {
-            return PartialView("~/Views/Shared/_MySubComments.cshtml", "");
+            var comments = db.Comments.Where(c => c.BlogId == blogId).ToList();
+            return PartialView("~/Views/Shared/_MyComments.cshtml", comments);
         }
 
         protected override void Dispose(bool disposing)
