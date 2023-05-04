@@ -21,5 +21,11 @@ namespace BaoVeSolution.WebApplication
             Application["Totaluser"] = (int)Application["Totaluser"] + 1;
             Application.UnLock();
         }
+        protected void Session_End()
+        {
+            Application.Lock();
+            Application["Totaluser"] = (int)Application["Totaluser"] - 1;
+            Application.UnLock();
+        }
     }
 }
